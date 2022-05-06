@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+<h1>Instagram Post Downloader</h1>
+
+<hr>
+<form action="/" method='POST'>
+    URL:  <input type="text" name ='url'>
+    <input type='submit', value='Submit'>
+<hr>
+
+</form>
+
+    {% for link in links %}
+        <a download href="{{link}}" target="_blank">Download</a>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
