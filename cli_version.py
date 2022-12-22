@@ -13,6 +13,7 @@ while(loop<10):
 
     try:
         videos = r.json()['graphql']['shortcode_media']
+        console.log(videos)
         if(videos['is_video'] == True):
             download_url = videos['video_url']
             links.append(download_url)
@@ -25,6 +26,7 @@ while(loop<10):
     try:
         images = r.json()['graphql']['shortcode_media']['edge_sidecar_to_children']['edges'][i]
         img = images['node']['display_url']
+        console.log(images)
         links.append(download_url)
         urllib.request.urlretrieve(img, 'C:/Users/Qureshi/Desktop/IGproject/{}.jpg'.format(i))
     except Exception:
