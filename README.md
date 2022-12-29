@@ -11,3 +11,8 @@ This project features a light weight Instagram image downloader built using the 
 5. Finally the links are rendered on the page with the help of a Python templating engine called Jinja. 
 
 The links can be clicked to view the full size images that one can right click as 'Save As' to their device!
+
+Steps to run locally on your machine:
+1. Clone this Github Repo to your machime
+2. Run `python application.py` to launch the local Flask Server
+3. Visit http://127.0.0.1:5000/ to use the application
