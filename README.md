@@ -1,5 +1,7 @@
 # InstaScraper
 
+Live: ec2-3-141-106-98.us-east-2.compute.amazonaws.com
+
 This project features a light weight Instagram image downloader built using the Python requests library and Flask for its UI.
 
 The Flask UI prompts the user to enter a URL (for example, https://www.instagram.com/p/Cmo_a46Jtwj/) and hit the submit button. On the backend the Python requests library calls Instagrams GraphQL api which returns JSON
