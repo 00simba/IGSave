@@ -17,7 +17,7 @@ while(loop<10):
         if(videos['is_video'] == True):
             download_url = videos['video_url']
             links.append(download_url)
-            urllib.request.urlretrieve(download_url, 'C:/Users/Qureshi/Desktop/IGproject/{}.mp4'.format(i))
+            urllib.request.urlretrieve(download_url, 'C:/Users/<Your System Name>/Desktop/IGproject/{}.mp4'.format(i))
             break
     except Exception:
         pass
@@ -28,7 +28,7 @@ while(loop<10):
         img = images['node']['display_url']
         console.log(images)
         links.append(download_url)
-        urllib.request.urlretrieve(img, 'C:/Users/Qureshi/Desktop/IGproject/{}.jpg'.format(i))
+        urllib.request.urlretrieve(img, 'C:/Users/<Your System Name>/Desktop/{}.jpg'.format(i))
     except Exception:
         pass
 
@@ -38,7 +38,7 @@ while(loop<10):
         if(videos['node']['is_video'] == True):
             download_url = videos['node']['video_url']
             links.append(download_url)
-            urllib.request.urlretrieve(download_url, 'C:/Users/Qureshi/Desktop/IGproject/{}.mp4'.format(i))
+            urllib.request.urlretrieve(download_url, 'C:/Users/<Your System Name>/Desktop/{}.mp4'.format(i))
     except Exception:
         pass
 
