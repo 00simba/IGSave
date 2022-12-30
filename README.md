@@ -14,5 +14,7 @@ The links can be clicked to view the full size images that one can right click a
 
 Steps to run locally on your machine:
 1. Clone this Github Repo to your machime
-2. Run `python application.py` to launch the local Flask Server
-3. Visit http://127.0.0.1:5000/ to use the application
+2. On Line 38 enter your Instagram username without the '<' and '>'
+3. On Line 39 enter your Instagram password without the '<' and '>'
+4. Run `python application.py` to launch the local Flask Server
+5. Visit http://127.0.0.1:5000/ to use the application
