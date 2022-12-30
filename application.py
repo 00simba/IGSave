@@ -35,8 +35,8 @@ def index():
         }
 
         data = {
-                'username': f'flaskgram',
-                'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:@Canada1.',
+                'username': f'<Your Username>',
+                'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:<Your Password>',
                 'queryParams': '{}',
                 'optIntoOneTap': 'false'
             }   
@@ -62,9 +62,9 @@ def index():
         
         #Either reel or not reel
         try:
-            mediaArray = media['items'][0]
-        except:
             all_links.append(media['items'][0]['video_versions'][0]['url'])
+        except:
+            mediaArray = media['items'][0]
     
         if len(mediaArray):
             try:
