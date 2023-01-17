@@ -1,6 +1,6 @@
 # InstaScraper
 
-Live: http://ec2-3-141-106-98.us-east-2.compute.amazonaws.com/
+Live: http://ec2-3-99-182-77.ca-central-1.compute.amazonaws.com/
 
 This project features a light weight Instagram image downloader built using the Python requests library and Flask for its UI.
 
