@@ -1,4 +1,4 @@
-# InstaScraper
+# iGramSaver
 
 Live: http://ec2-3-99-182-77.ca-central-1.compute.amazonaws.com/
 
