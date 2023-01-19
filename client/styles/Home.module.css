@@ -1,12 +1,11 @@
 .header{
-  background: white;
   display: flex;
   flex-direction: row;
 }
 
 .logo{
   width: 150px;
-  margin: 4% 0% 0% 4%;
+  margin: 4% 0% 4% 4%;
 }
 
 .downloadDiv{
@@ -14,7 +13,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10%;
+  padding: 10% 10% 12% 10%;
   background-image: linear-gradient(to left, #f002dc, #8f0af8);
   color: white;
   gap: 20px;
@@ -31,16 +30,16 @@
 
 
 .input{
-  -webkit-appearance: none;
-  padding: 7% 20% 7% 20%;
+  background-color: white;
+  padding: 7% 15% 7% 15%;
   border-radius: 15px;
   font-size: large;
   border: none
 }
 
 .button{
-  -webkit-appearance: none;
   background-color: white;
+  color: black;
   padding: 6% 30% 6% 30%;
   border-radius: 15px;
   border: none;
