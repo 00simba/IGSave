@@ -1,6 +1,6 @@
 # iGramSaver
 
-Live: http://ec2-3-99-182-77.ca-central-1.compute.amazonaws.com/
+Live API: http://ec2-3-99-182-77.ca-central-1.compute.amazonaws.com/
 
 This project features a light weight Instagram image downloader built using the Python requests library and Flask for its UI.
 
