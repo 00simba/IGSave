@@ -21,7 +21,7 @@ export default function Home() {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    axios.post('http://ec2-3-99-182-77.ca-central-1.compute.amazonaws.com/', {url: url}, config).then((res) => {
+    axios.post('https://igsave.onrender.com', {url: url}, config).then((res) => {
       router.push({
         pathname: '/media'
       })

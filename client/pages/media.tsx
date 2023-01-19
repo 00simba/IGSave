@@ -8,7 +8,7 @@ export default function Media(){
 
     useEffect(() => {
         const getLinks = async () => {      
-            const data = await axios.get('http://ec2-3-99-182-77.ca-central-1.compute.amazonaws.com/')
+            const data = await axios.get('https://igsave.onrender.com/')
             setLinks(data.data.links)
       }
       getLinks()
