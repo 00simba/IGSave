@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import { Inter } from '@next/font/google';
+import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +19,11 @@ export default function Media(){
 
     return(
         <>
+            <main className={styles.header}>
+                <a href="https://igsave.io"><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
+            </main>
             <div>
-                <h1 className={inter.className}>Media Page</h1>  
-                <br/>
+                <h1 className={inter.className}>Post Media</h1>  
             </div>
             {links.map((link) => {
                 return(

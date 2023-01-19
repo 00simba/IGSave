@@ -37,7 +37,7 @@ export default function Home() {
         <link rel="icon" href="/igsave_logo.png"/>
       </Head>
       <main className={styles.header}>
-        <img className={styles.logo} src='/igsave_logo_full.png'></img>
+        <a href="https://igsave.io"><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
       </main>
       <div className={styles.downloadDiv}>
         <h1 className={inter.className} id='downloadHeading'>
