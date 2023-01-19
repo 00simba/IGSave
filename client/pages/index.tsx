@@ -21,7 +21,7 @@ export default function Home() {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    axios.post('https://igsave-api.onrender.com', {url: url}, config).then((res) => {
+    axios.post('https://igsave.onrender.com', {url: url}, config).then((res) => {
       router.push({
         pathname: '/media'
       })
@@ -31,14 +31,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>iGramSaver</title>
+        <title>IGSave</title>
         <meta name="description" content="Download any Instagram Image, Video, and Reel using iGramSaver" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
             <h1 className={inter.className}>
-              iGramSaver
+              IGSave
             </h1>
             <br/>
             <p className={inter.className}>
