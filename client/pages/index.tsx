@@ -31,27 +31,24 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>IGSave</title>
+        <title>IGSave - Download Instagram Images, Videos, & Reels</title>
         <meta name="description" content="Download any Instagram Image, Video, and Reel using iGramSaver" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/igsave_logo.png"/>
       </Head>
-      <main className={styles.main}>
-            <h1 className={inter.className}>
-              IGSave
-            </h1>
-            <br/>
-            <p className={inter.className}>
-              Download any Instagram Image, Video, or Reel by pasting its link below and clicking submit.
-            </p>
-            <br/>
-            <p className={inter.className}>Enter Link</p>
-  
-            <form id='form' action="/" method='POST'>
-              <input type="text" name ='url' onChange={(e) => setUrl(e.target.value)}></input>
-            </form> 
-            <button onClick={handleSubmit}>Submit</button>
+      <main className={styles.header}>
+        <img className={styles.logo} src='/igsave_logo_full.png'></img>
       </main>
+      <br/>
+      <div className={styles.downloadDiv}>
+        <h1 className={inter.className} id='downloadHeading'>
+          Instagram Post Downloader
+        </h1>
+        <form className={styles.form} id='form' action="/" method='POST'>
+          <input className={styles.input} type="text" name ='url' placeholder='Paste Instagram Link Here' onChange={(e) => setUrl(e.target.value)}></input>
+        </form> 
+        <button className={styles.button} onClick={handleSubmit}>Download</button>
+      </div>
     </>
   )
 }

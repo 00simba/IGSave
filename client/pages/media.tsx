@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Inter } from '@next/font/google'
+import styles from '@/styles/Home.module.css'
 
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Media(){
 
@@ -17,7 +20,7 @@ export default function Media(){
     return(
         <>
             <div>
-                <h1>Media Page</h1>  
+                <h1 className={inter.className}>Media Page</h1>  
                 <br/>
             </div>
             {links.map((link) => {
