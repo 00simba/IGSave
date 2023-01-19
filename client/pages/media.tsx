@@ -22,7 +22,7 @@ export default function Media(){
             </div>
             {links.map((link) => {
                 return(
-                <div>
+                <div key={link}>
                     <a href={link}>Download<br/></a>
                 </div>
                 )
