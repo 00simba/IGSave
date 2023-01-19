@@ -1,12 +1,16 @@
 from flask import Flask, render_template, request
 import urllib.request, requests
 import json
+from flask_cors import CORS, cross_origin
 
 application = Flask(__name__)
+cors = CORS(application)
+application.config['CORS_HEADERS'] = 'Content-Type'
 
 all_links = []
 
 @application.route('/', methods = ['POST', 'GET'])
+@cross_origin()
 def index():
 
     if request.method == 'POST':
