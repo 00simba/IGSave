@@ -3,9 +3,25 @@ body {
 }
 
 h1 {
-    padding: 2% 0% 2% 2%;
+    padding: 2% 0% 0% 2%;
 }
 
 form{
-    padding: 0% 0% 2% 2%;
+    padding: 2% 0% 2% 2%;
+}
+
+p {
+    padding: 0% 0% 0% 2%;
+}
+
+.singleSpan{
+    padding: 0% 0% 0% 2%;
+}
+
+.multipleSpan{
+    padding: 0% 0% 0% 2%;
+}
+
+.reelSpan{
+    padding: 0% 0% 1% 2%;
 }

@@ -1,14 +1,35 @@
 {% extends 'base.html'%}
 
 {% block head %}
-<title>Home</title>
+<title>iGramSaver</title>
 {% endblock %}
 
 {% block body %}
-<h1 class="headingTitle">Instagram Post Downloader</h1>
+<h1 class="headingTitle">iGramSaver</h1>
+
+<p>Welcome! Download any Instagram post by pasting its link in the 'Enter Link' field below and hitting 'Submit'.</p>
+<p>If you're using Instagram on your mobile tap the 3 dots in the corner of a post and tap 'Link' to copy its link.</p>
+<p>Don't have any posts in mind? Test it out using the links below!</p>
+
+<span class="singleSpan">Single Image:</span>
+<br/>
+<span class="singleSpan"> https://www.instagram.com/p/Cmo_a46Jtwj/</span>
+<br/>
+
+<span class="multipleSpan">Multiple Images:</span>
+<br/>
+<span class="multipleSpan">https://www.instagram.com/p/CmsX-_KJUIC/</span>
+<br/>
+
+<span class="reelSpan">Reel Post:</span>
+<br/>
+<span class="reelSpan">https://www.instagram.com/reel/CmSHYvJpyMf/</span>
+<br/>
+
+<hr/>
 
 <form action="/" method='POST'>
-    URL:  <input type="text" name ='url'>
+    Enter Link:  <input type="text" name ='url'>
     <input type='submit', value='Submit'>
 </form>
 
