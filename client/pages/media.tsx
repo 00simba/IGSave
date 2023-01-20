@@ -23,15 +23,19 @@ export default function Media(){
                 <a href="https://igsave.io"><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
             </main>
             <div>
-                <h1 className={inter.className}>Post Media</h1>  
-            </div>
-            {links.map((link) => {
-                return(
-                <div key={link}>
-                    <a href={link}>Download<br/></a>
+                <div className={styles.downloadDiv}>
+                    <h1 className={inter.className}>Post Media</h1>  
                 </div>
-                )
-            })} 
+            </div>
+            <div className={styles.linkDiv}>
+                {links.map((link) => {
+                    return(
+                    <div className={styles.mediaCard} key={link}>
+                        <button className={styles.downloadButton} onClick={() => {window.open(link)}}>Download</button>
+                    </div>
+                    )
+                })} 
+            </div>
         </>
     )   
 }

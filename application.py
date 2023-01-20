@@ -43,8 +43,8 @@ def index():
 	    }
 
         data = {
-                'username': f'flaskgram',
-                'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:@Canada1.',
+                'username': f'sameerq._',
+                'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:@CivicTouring1.',
                 'queryParams': '{}',
                 'optIntoOneTap': 'false'
         }   
