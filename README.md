@@ -1,4 +1,4 @@
-# iGramSaver
+# IGSave
 
 Live: https://igsave.io
 
