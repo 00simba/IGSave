@@ -36,7 +36,8 @@ export default function Home() {
         <meta name="description" content="Download any Instagram Image, Video, and Reel using iGramSaver" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/igsave_logo.png"/>
-      </Head>
+      </Head>    
+      <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>  
       <main className={styles.header}>
         <a href="https://igsave.io"><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
       </main>

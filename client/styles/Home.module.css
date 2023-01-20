@@ -3,6 +3,17 @@
   flex-direction: row;
 }
 
+.announcementBar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: linear-gradient(45deg, #f002dc, #8f0af8);
+  padding: 1%;
+  color: white;
+}
+
 .logo{
   width: 200px;
   margin: 10% 0% 10% 10%;
@@ -31,12 +42,15 @@
 
 .input{
   background-color: white;
-  padding: 7% 15% 7% 15%;
+  width: 100%;
+  padding: 6%;
   border-radius: 15px;
   font-size: large;
   color: black;
-  border: none
+  border: none;
+  text-align: center;
 }
+
 
 .button{
   background-color: white;
@@ -64,6 +78,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: larger;
 }
 
 .linkDiv{
@@ -80,4 +95,70 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+
+  .downloadDiv{
+    padding: 5% 5% 6% 5%;
+  }
+  
+  .form{
+    width: 70%;
+  }
+  
+  .input{
+    width: 100%;
+    padding: 6%;
+    text-align: center;
+  }
+
+  .button{
+    padding: 4% 20% 4% 20%;
+  }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  .downloadDiv{
+    padding: 5% 5% 6% 5%;
+  }
+  
+  .form{
+    width: 60%;
+  }
+  
+  .input{
+    width: 100%;
+    padding: 5%;
+    text-align: center;
+  }
+  .button{
+    padding: 3% 20% 3% 20%;
+  }
+
+}
+
+@media screen and (min-width: 1025px){
+
+  .downloadDiv{
+    padding: 4% 4% 5% 4%;
+    gap: 25px;
+  }
+
+  .form{
+    width: 50%;
+  }
+  
+  .input{
+    width: 100%;
+    padding: 4%;
+    text-align: center;
+  }
+
+  .button{
+    padding: 2% 15% 2% 15%;
+  }
+  
 }
