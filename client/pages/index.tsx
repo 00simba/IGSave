@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -48,6 +49,7 @@ export default function Home() {
         </form> 
         <button className={styles.button} onClick={handleSubmit}>Download</button>
       </div>
+      <GoogleAnalytics measurementId="G-ZGXMMY4FE3" />
     </>
   )
 }
