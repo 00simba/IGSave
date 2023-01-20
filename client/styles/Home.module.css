@@ -48,12 +48,15 @@
 }
 
 .downloadButton{
-  background-color: white;
+  background-image: linear-gradient(to right, #f002dc, #8f0af8);
   color: black;
   padding: 0%;
   border-radius: 15px;
   border: none;
+  width: 80%;
+  height: 50px;
   font-size: large;
+  color: white;
 }
 
 #downloadHeading{
@@ -68,6 +71,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 8%;
+  gap: 20px;
 }
 
 .mediaCard{

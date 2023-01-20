@@ -29,10 +29,9 @@ export default function Media(){
             </div>
             <div className={styles.linkDiv}>
     
-                {links.map((link) => {
+                {links.map((link) => {           
                     return(
                     <div className={styles.mediaCard} key={link}>
-                        <img src={link}/>
                         <button className={styles.downloadButton} onClick={() => {window.open(link)}}>Download</button>
                     </div>
                     )
