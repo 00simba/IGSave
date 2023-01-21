@@ -19,6 +19,8 @@ export default function Media(){
         getLinks()
     }, [])    
 
+    var mediaNum = 0;
+
     return(
         <>
             <main className={styles.header}>
@@ -30,12 +32,13 @@ export default function Media(){
                 </div>
             </div>
             <div className={styles.linkDiv}>
-                {links.map((link) => {           
+                {links.map((link) => {  
+                    mediaNum = mediaNum + 1         
                     return(
                     <div className={styles.mediaCard} key={link}>
                         <div className={styles.downloadButton}>
                             <div className={styles.aTagDiv}>
-                                <a className={inter.className} href={link} target="_blank" rel="noreferrer">Download</a>
+                                <a className={inter.className} href={link} target="_blank" rel="noreferrer">Download {mediaNum}</a>
                             </div>
                         </div>
                     </div>
