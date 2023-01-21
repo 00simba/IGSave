@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
+import Footer from '@/components/footer';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,6 +39,10 @@ export default function Media(){
                     )
                 })} 
             </div>
+            <div className={styles.contentDiv}>
+
+            </div>
+            <Footer/>
             <GoogleAnalytics measurementId="G-ZGXMMY4FE3" />
         </>
     )   
