@@ -30,11 +30,14 @@ export default function Media(){
                 </div>
             </div>
             <div className={styles.linkDiv}>
-    
                 {links.map((link) => {           
                     return(
                     <div className={styles.mediaCard} key={link}>
-                        <a className={styles.buttonLink} href={link} target="_blank" rel="noreferrer"><button className={styles.downloadButton}>Download</button></a>
+                        <div className={styles.downloadButton}>
+                            <div className={styles.aTagDiv}>
+                                <a className={inter.className} href={link} target="_blank" rel="noreferrer">Download</a>
+                            </div>
+                        </div>
                     </div>
                     )
                 })} 
