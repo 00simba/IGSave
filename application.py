@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 import urllib.request, requests
 import json
@@ -6,6 +8,7 @@ from flask_cors import CORS, cross_origin
 application = Flask(__name__)
 cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
+load_dotenv()
 
 all_links = []
 
@@ -43,8 +46,8 @@ def index():
 	    }
 
         data = {
-                'username': f'sameerq._',
-                'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:@CivicTouring1.',
+                'username': f'' + os.getenv('USER'),
+                'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:'+ os.getenv('PASSWORD'),
                 'queryParams': '{}',
                 'optIntoOneTap': 'false'
         }   
