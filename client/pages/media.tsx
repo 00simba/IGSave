@@ -34,7 +34,7 @@ export default function Media(){
                 {links.map((link) => {           
                     return(
                     <div className={styles.mediaCard} key={link}>
-                        <button className={styles.downloadButton} onClick={() => {window.open(link)}}>Download</button>
+                        <a className={styles.buttonLink} href={link} target="_blank"><button className={styles.downloadButton}>Download</button></a>
                     </div>
                     )
                 })} 
