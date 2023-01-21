@@ -73,7 +73,10 @@ def index():
         if len(mediaArray):
             try:
                 for items in mediaArray['carousel_media']:  
-                    all_links.append(items['image_versions2']['candidates'][0]['url'])
+                    try:
+                        all_links.append(items['video_versions'][0]['url'])
+                    except:
+                        all_links.append(items['image_versions2']['candidates'][0]['url'])
             except:
                 all_links.append(mediaArray['image_versions2']['candidates'][0]['url'])
 
