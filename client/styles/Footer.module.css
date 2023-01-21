@@ -1,0 +1,60 @@
+.footerContainer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerDiv{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    padding: 1% 0% 5% 0%;
+    row-gap: 20px;
+    border-top: darkgray 2px solid;
+    text-align: center;
+}
+
+.logoContainer img{
+    margin: 10% 0% 0% 0%;
+}
+
+.copyrightBanner{
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(45deg, #f002dc, #8f0af8);
+    padding: 1%;
+    color: white;
+}
+
+.li{
+    margin-bottom: 5px;
+}
+
+
+@media screen and (min-width: 490px) and (max-width: 1024px) {
+
+    .footerDiv{
+        flex-direction: row;
+        column-gap: 5%;
+        padding: 2% 0% 2% 0%;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+
+@media screen and (min-width: 1025px){
+
+    .footerDiv{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        column-gap: 5%;
+        padding: 1.5% 0% 1.5% 0%;
+    }
+
+}
+

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
+import Footer from '../components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,8 +33,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>IGSave - Download Instagram Images, Videos, & Reels</title>
-        <meta name="description" content="Download any Instagram Image, Video, and Reel using iGramSaver" />
+        <title>Download Instagram Images, Videos, & Reels</title>
+        <meta name="description" content="Download any Instagram Image, Video, and Reel in HD using IGSave" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/igsave_logo.png"/>
       </Head>    
@@ -50,6 +51,7 @@ export default function Home() {
         </form> 
         <button className={styles.button} onClick={handleSubmit}>Download</button>
       </div>
+      <Footer/>
       <GoogleAnalytics measurementId="G-ZGXMMY4FE3" />
     </>
   )
