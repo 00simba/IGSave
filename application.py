@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 import urllib.request, requests
 import json
 from flask_cors import CORS, cross_origin
+import base64
 
 application = Flask(__name__)
 cors = CORS(application)
@@ -65,23 +66,26 @@ def index():
 
         #Either reel or not reel
         try:
-            all_links.append(media['items'][0]['video_versions'][0]['url'])
+            response = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
+            all_links.append({'url': media['items'][0]['video_versions'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
         except:
             mediaArray = media['items'][0]
-
     
         if len(mediaArray):
             try:
                 for items in mediaArray['carousel_media']:  
                     try:
-                        all_links.append(items['video_versions'][0]['url'])
+                        response = requests.get(items['video_versions']['candidates'][0]['url'])
+                        all_links.append({'url': items['video_versions'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
                     except:
-                        all_links.append(items['image_versions2']['candidates'][0]['url'])
+                        response = requests.get(items['image_versions2']['candidates'][0]['url'])
+                        all_links.append({'url': items['image_versions2']['candidates'][0]['url'], 'base64' : "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
             except:
-                all_links.append(mediaArray['image_versions2']['candidates'][0]['url'])
+                response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
+                all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
 
-     
         return {'links': all_links}
+
     else:
         return {'links': all_links}
 
