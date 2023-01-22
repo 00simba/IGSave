@@ -64,8 +64,8 @@ def index():
         media = r.json()
         mediaArray = []
 
-        #Either reel or not reel
         try:
+            #Checks to see if post is a reel
             response = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
             all_links.append({'url': media['items'][0]['video_versions'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
         except:
@@ -74,13 +74,15 @@ def index():
         if len(mediaArray):
             try:
                 for items in mediaArray['carousel_media']:  
+                    response = requests.get(items['image_versions2']['candidates'][0]['url'])
                     try:
-                        response = requests.get(items['image_versions2']['candidates'][0]['url'])
+                        #Checks to see if carousel media is a video
                         all_links.append({'url': items['video_versions'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
                     except:
-                        response = requests.get(items['image_versions2']['candidates'][0]['url'])
+                        #If not video, carousel media is an image
                         all_links.append({'url': items['image_versions2']['candidates'][0]['url'], 'base64' : "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
             except:
+                #If the post is only a single image
                 response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
                 all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
 
@@ -90,4 +92,4 @@ def index():
         return {'links': all_links}
 
 if __name__ == "__main__":
-    application.run()
+    application.run(threaded=True)
