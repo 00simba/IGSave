@@ -75,7 +75,7 @@ def index():
             try:
                 for items in mediaArray['carousel_media']:  
                     try:
-                        response = requests.get(items['video_versions']['candidates'][0]['url'])
+                        response = requests.get(items['image_versions2']['candidates'][0]['url'])
                         all_links.append({'url': items['video_versions'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
                     except:
                         response = requests.get(items['image_versions2']['candidates'][0]['url'])

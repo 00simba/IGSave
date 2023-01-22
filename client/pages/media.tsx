@@ -24,7 +24,7 @@ export default function Media(){
     return(
         <>
             <main className={styles.header}>
-                <a href="https://igsave.io"><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
+                <a href='https://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
             </main>
             <div>
                 <div className={styles.downloadDiv}>
@@ -38,7 +38,7 @@ export default function Media(){
                         <img className={mediaStyles.thumbNail} src={item.base64}/>
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
-                                <a className={inter.className} href={item.url} target="_blank" rel="noreferrer">Download</a>
+                                <a className={inter.className} href={item.url} target='_blank' rel='noreferrer'>Download</a>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ export default function Media(){
 
             </div>
             <Footer/>
-            <GoogleAnalytics measurementId="G-ZGXMMY4FE3" />
+            <GoogleAnalytics measurementId='G-ZGXMMY4FE3'/>
         </>
     )   
 }
