@@ -15,7 +15,7 @@ export default function Media(){
 
     useEffect(() => {
         const getLinks = async () => {      
-            const data = await axios.get('http://127.0.0.1:5000')
+            const data = await axios.get('https://igsave.onrender.com')
             setLinks(data.data.links)
         }
         getLinks()

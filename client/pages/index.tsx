@@ -23,7 +23,7 @@ export default function Home() {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    axios.post('http://127.0.0.1:5000', {url: url}, config).then((res) => {
+    axios.post('https://igsave.onrender.com', {url: url}, config).then((res) => {
       router.push({
         pathname: '/media'
       })
@@ -34,20 +34,20 @@ export default function Home() {
     <>
       <Head>
         <title>Download Instagram Images, Videos, & Reels</title>
-        <meta name="description" content="Download any Instagram Image, Video, and Reel in HD using IGSave" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/igsave_logo.png"/>
+        <meta name='description' content='Download any Instagram Image, Video, and Reel in HD using IGSave' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
       <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>  
       <main className={styles.header}>
-        <a href="https://igsave.io"><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
+        <a href='https://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
       </main>
       <div className={styles.downloadDiv}>
         <h1 className={inter.className} id='downloadHeading'>
           Instagram Post Downloader
         </h1>
         <form className={styles.form} id='form' action="/" method='POST'>
-          <input className={styles.input} type="text" name ='url' placeholder='Paste Instagram Link Here' onChange={(e) => setUrl(e.target.value)}></input>
+          <input className={styles.input} type='text' name ='url' placeholder='Paste Instagram Link Here' onChange={(e) => setUrl(e.target.value)}></input>
         </form> 
         <button className={styles.button} onClick={handleSubmit}>Download</button>
       </div> 
@@ -55,7 +55,7 @@ export default function Home() {
 
       </div>
       <Footer/>
-      <GoogleAnalytics measurementId="G-ZGXMMY4FE3" />
+      <GoogleAnalytics measurementId='G-ZGXMMY4FE3' />
     </>
   )
 }
