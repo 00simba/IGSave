@@ -14,17 +14,37 @@ cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
 
-all_links = []
-
 #Connect to MongoDB Database
-# cluster = os.getenv('MONGO_URI')
-# client = MongoClient(cluster)
-# db = client.IGSave
-# URLs = db.URLs
+cluster = os.getenv('MONGO_URI')
+client = MongoClient(cluster)
+db = client.IGSave
+URLs = db.URLs
+
+
+def db_upload(request, all_links):
+
+    dlUrl = request.json['url']
+    urlArr = []
+    base64Arr = []
+
+    for i in range(len(all_links)):
+        urlArr.append(all_links[i]['url'])
+        base64Arr.append(all_links[i]['base64'])
+
+    result = URLs.insert_one({
+        'id' : dlUrl,
+        'links': urlArr,
+        'base64': base64Arr
+    })
+
+    return result
+
 
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
 def index():
+
+    all_links = []
 
     if(request.method == 'POST'):
 
@@ -109,11 +129,11 @@ def index():
         #     'base64': base64Arr
         # })
 
+        result = db_upload(request, all_links)
+
         return {'links' : all_links}
     else:
         return {'links' : all_links}
-
-
 
 # @application.route('/get', methods = ['POST', 'GET', 'OPTIONS'])
 # @cross_origin()
