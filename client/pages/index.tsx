@@ -23,10 +23,9 @@ export default function Home() {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    axios.post('https://igsave.onrender.com', {url: url}, config).then((res) => {
-      router.push({
-        pathname: '/media'
-      })
+    router.push({
+      pathname: '/media',
+      query: {url: url}, 
     })
   }
 

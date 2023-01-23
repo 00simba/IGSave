@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosInterceptorManager } from 'axios';
 import { useEffect, useState } from 'react';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
@@ -6,17 +6,28 @@ import mediaStyles from '@/styles/Media.module.css';
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '@/components/footer';
 import '@/styles/Media.module.css'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
+
+function delay(time: any) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
 
 export default function Media(){
 
     const [links, setLinks] = useState<any[]>([])
+    const [Base64, setBase64] = useState<any[]>([])
 
     useEffect(() => {
-        const getLinks = async () => {      
-            const data = await axios.get('https://igsave.onrender.com')
+        const getLinks = async () => {   
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            const params = Object.fromEntries(urlSearchParams.entries());
+            await axios.post('http://127.0.0.1:5000/', { url: params.url})
+            delay(3000)
+            const data = await axios.post('http://127.0.0.1:5000/get', { url: params.url})
             setLinks(data.data.links)
+            setBase64(data.data.base64)
         }
         getLinks()
     }, [])    
@@ -32,13 +43,13 @@ export default function Media(){
                 </div>
             </div>
             <div id='cardContainer' className={styles.linkDiv}>
-                {links.map((item) => {         
+                {links.map((value, index) => {   
                     return(
-                    <div className={mediaStyles.mediaCard} key={item.url}>
-                        <img className={mediaStyles.thumbNail} src={item.base64}/>
+                    <div className={mediaStyles.mediaCard} key={value}>
+                        <img className={mediaStyles.thumbNail} src={Base64[index]}/>
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
-                                <a className={inter.className} href={item.url} target='_blank' rel='noreferrer'>Download</a>
+                                <a className={inter.className} href={value} target='_blank' rel='noreferrer'>Download</a>
                             </div>
                         </div>
                     </div>
