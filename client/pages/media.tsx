@@ -6,7 +6,6 @@ import mediaStyles from '@/styles/Media.module.css';
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '@/components/footer';
 import '@/styles/Media.module.css'
-import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,7 +29,7 @@ export default function Media(){
         const getLinks = async () => {   
             const urlSearchParams = new URLSearchParams(window.location.search);
             const params = Object.fromEntries(urlSearchParams.entries());
-            await axios.post('https://igsave.onrender.com/', { url: params.url}, config)
+            await axios.post('https://igsave.onrender.com', { url: params.url}, config)
             delay(3000)
             const data = await axios.post('https://igsave.onrender.com/get', { url: params.url}, config)
             setLinks(data.data.links)
