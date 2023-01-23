@@ -27,14 +27,14 @@ def db_upload(request, all_links):
     urlArr = []
     base64Arr = []
 
-    for i in range(len(all_links)):
-        urlArr.append(all_links[i]['url'])
-        base64Arr.append(all_links[i]['base64'])
+    # for i in range(len(all_links)):
+    #     urlArr.append(all_links[i]['url'])
+    #     base64Arr.append(all_links[i]['base64'])
 
     result = URLs.insert_one({
-        'id' : dlUrl,
-        'links': urlArr,
-        'base64': base64Arr
+        'id' : 'test',
+        'links': 'ing',
+        'base64': '123'
     })
 
     return result
@@ -114,20 +114,6 @@ def index():
                 #If the post is only a single image
                 response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
                 all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
-
-        # dlUrl = req['url']
-        # urlArr = []
-        # base64Arr = []
-
-        # for i in range(len(all_links)):
-        #     urlArr.append(all_links[i]['url'])
-        #     base64Arr.append(all_links[i]['base64'])
-
-        # result = URLs.insert_one({
-        #     'id' : dlUrl,
-        #     'links': urlArr,
-        #     'base64': base64Arr
-        # })
 
         result = db_upload(request, all_links)
 
