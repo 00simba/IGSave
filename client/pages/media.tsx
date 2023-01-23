@@ -18,12 +18,34 @@ export default function Media(){
     const [links, setLinks] = useState<any[]>([])
     const [Base64, setBase64] = useState<any[]>([])
 
-    // const config = {
-    //     headers: {
-    //      'Access-Control-Allow-Origin' : '*',
-    //      'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-    //      }
-    // }
+    const config = {
+        headers: {
+         'Access-Control-Allow-Origin' : '*',
+         'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+         }
+    }
+
+    useEffect(() => {
+        const getLinks = async () => {   
+            const urlSearchParams = new URLSearchParams(window.location.search);
+            const params = Object.fromEntries(urlSearchParams.entries());
+            const data = await axios.post('http://127.0.0.1:5000', { url: params.url}, config)
+            
+            //Array contains object with key value pairs of base64 and url
+
+            let linksArr = new Array<string>
+            let base64Arr = new Array<string> 
+
+            data.data.links.map((item: any) => {
+                linksArr.push(item.url)
+                base64Arr.push(item.base64)
+            })            
+            
+            setLinks(linksArr)
+            setBase64(base64Arr)        
+        }
+        getLinks()
+    }, [])  
 
     // useEffect(() => {
     //     const getLinks = async () => {   

@@ -20,26 +20,6 @@ client = MongoClient(cluster)
 db = client.IGSave
 URLs = db.URLs
 
-
-def db_upload(request, all_links):
-
-    dlUrl = request.json['url']
-    urlArr = []
-    base64Arr = []
-
-    # for i in range(len(all_links)):
-    #     urlArr.append(all_links[i]['url'])
-    #     base64Arr.append(all_links[i]['base64'])
-
-    result = URLs.insert_one({
-        'id' : 'test',
-        'links': 'ing',
-        'base64': '123'
-    })
-
-    return result
-
-
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
 def index():
@@ -115,7 +95,7 @@ def index():
                 response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
                 all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
 
-        result = db_upload(request, all_links)
+        #result = db_upload(request, all_links)
 
         return {'links' : all_links}
     else:
