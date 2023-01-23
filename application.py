@@ -26,7 +26,12 @@ URLs = db.URLs
 @cross_origin()
 def index():
 
-    if(request.method == 'POST'):
+    if request.method == "OPTIONS": # CORS preflight
+        return _build_cors_preflight_response()
+
+    
+
+    elif(request.method == 'POST'):
 
         req = request.json
         download_url = req['url']
@@ -109,9 +114,9 @@ def index():
             'base64': base64Arr
         })
 
-        return {'links' : all_links}
+        return _corsify_actual_response({'links' : all_links})
     else:
-        return {'links' : all_links}
+        return _corsify_actual_response({'links' : all_links})
 
 
 
@@ -122,6 +127,18 @@ def index():
 #     result = URLs.find_one({"id" : req['url']})
 #     URLs.delete_one({"id" : req['url']})
 #     return json.loads(json_util.dumps(result))
+
+
+def _build_cors_preflight_response():
+    response = make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add('Access-Control-Allow-Headers', "*")
+    response.headers.add('Access-Control-Allow-Methods', "*")
+    return response
+
+def _corsify_actual_response(response):
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 if __name__ == "__main__":
     application.run()
