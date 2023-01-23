@@ -109,21 +109,19 @@ def index():
             'base64': base64Arr
         })
 
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return {'Data' : 'Posted'}
+        return {'links' : all_links}
     else:
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return {'Data' : 'Not Posted'}
+        return {'links' : all_links}
 
 
 
-@application.route('/get', methods = ['POST', 'GET', 'OPTIONS'])
-@cross_origin()
-def get():
-    req = request.json
-    result = URLs.find_one({"id" : req['url']})
-    URLs.delete_one({"id" : req['url']})
-    return json.loads(json_util.dumps(result))
+# @application.route('/get', methods = ['POST', 'GET', 'OPTIONS'])
+# @cross_origin()
+# def get():
+#     req = request.json
+#     result = URLs.find_one({"id" : req['url']})
+#     URLs.delete_one({"id" : req['url']})
+#     return json.loads(json_util.dumps(result))
 
 if __name__ == "__main__":
     application.run()
