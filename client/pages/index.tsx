@@ -14,13 +14,6 @@ export default function Home() {
   const [url, setUrl] = useState('')
   const router = useRouter()
 
-  const config = {
-    headers: {
-     'Access-Control-Allow-Origin' : '*',
-     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-     }
- }
-
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     router.push({
