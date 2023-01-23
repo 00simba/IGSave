@@ -17,21 +17,16 @@ load_dotenv()
 all_links = []
 
 #Connect to MongoDB Database
-cluster = os.getenv('MONGO_URI')
-client = MongoClient(cluster)
-db = client.IGSave
-URLs = db.URLs
+# cluster = os.getenv('MONGO_URI')
+# client = MongoClient(cluster)
+# db = client.IGSave
+# URLs = db.URLs
 
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
 def index():
 
-    if request.method == "OPTIONS": # CORS preflight
-        return _build_cors_preflight_response()
-
-    
-
-    elif(request.method == 'POST'):
+    if(request.method == 'POST'):
 
         req = request.json
         download_url = req['url']
@@ -100,23 +95,23 @@ def index():
                 response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
                 all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
 
-        dlUrl = req['url']
-        urlArr = []
-        base64Arr = []
+        # dlUrl = req['url']
+        # urlArr = []
+        # base64Arr = []
 
-        for i in range(len(all_links)):
-            urlArr.append(all_links[i]['url'])
-            base64Arr.append(all_links[i]['base64'])
+        # for i in range(len(all_links)):
+        #     urlArr.append(all_links[i]['url'])
+        #     base64Arr.append(all_links[i]['base64'])
 
-        result = URLs.insert_one({
-            'id' : dlUrl,
-            'links': urlArr,
-            'base64': base64Arr
-        })
+        # result = URLs.insert_one({
+        #     'id' : dlUrl,
+        #     'links': urlArr,
+        #     'base64': base64Arr
+        # })
 
-        return _corsify_actual_response({'links' : all_links})
+        return {'links' : all_links}
     else:
-        return _corsify_actual_response({'links' : all_links})
+        return {'links' : all_links}
 
 
 
@@ -127,18 +122,6 @@ def index():
 #     result = URLs.find_one({"id" : req['url']})
 #     URLs.delete_one({"id" : req['url']})
 #     return json.loads(json_util.dumps(result))
-
-
-def _build_cors_preflight_response():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add('Access-Control-Allow-Headers', "*")
-    response.headers.add('Access-Control-Allow-Methods', "*")
-    return response
-
-def _corsify_actual_response(response):
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    return response
 
 if __name__ == "__main__":
     application.run()
