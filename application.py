@@ -27,7 +27,7 @@ URLs = db.URLs
 def index():
 
     if(request.method == 'POST'):
-        
+
         req = request.json
         download_url = req['url']
 
@@ -109,8 +109,10 @@ def index():
             'base64': base64Arr
         })
 
+        response.headers.add('Access-Control-Allow-Origin', '*')
         return {'Data' : 'Posted'}
     else:
+        response.headers.add('Access-Control-Allow-Origin', '*')
         return {'Data' : 'Not Posted'}
 
 
