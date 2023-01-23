@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '../components/footer'
+import axios from 'axios'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,8 +14,16 @@ export default function Home() {
   const [url, setUrl] = useState('')
   const router = useRouter()
 
+  const config = {
+    headers: {
+     'Access-Control-Allow-Origin' : '*',
+     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+     }
+  }
+
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
+    axios.post('https://igsave.onrender.com', { url: url}, config)
     router.push({
       pathname: '/media',
       query: {url: url}, 

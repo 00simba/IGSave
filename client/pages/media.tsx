@@ -29,7 +29,7 @@ export default function Media(){
         const getLinks = async () => {   
             const urlSearchParams = new URLSearchParams(window.location.search);
             const params = Object.fromEntries(urlSearchParams.entries());
-            await axios.post('https://igsave.onrender.com', { url: params.url}, config)
+            axios.post('https://igsave.onrender.com', { url: params.url}, config)
             delay(3000)
             const data = await axios.post('https://igsave.onrender.com/get', { url: params.url}, config)
             setLinks(data.data.links)
