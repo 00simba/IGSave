@@ -18,25 +18,25 @@ export default function Media(){
     const [links, setLinks] = useState<any[]>([])
     const [Base64, setBase64] = useState<any[]>([])
 
-    const config = {
-        headers: {
-         'Access-Control-Allow-Origin' : '*',
-         'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-         }
-    }
+    // const config = {
+    //     headers: {
+    //      'Access-Control-Allow-Origin' : '*',
+    //      'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    //      }
+    // }
 
-    useEffect(() => {
-        const getLinks = async () => {   
-            const urlSearchParams = new URLSearchParams(window.location.search);
-            const params = Object.fromEntries(urlSearchParams.entries());
-            axios.post('https://igsave.onrender.com', { url: params.url}, config).then((res) => {console.log(res)})
-            delay(3000)
-            const data = await axios.post('https://igsave.onrender.com/get', { url: params.url}, config)
-            setLinks(data.data.links)
-            setBase64(data.data.base64)
-        }
-        getLinks()
-    }, [])    
+    // useEffect(() => {
+    //     const getLinks = async () => {   
+    //         const urlSearchParams = new URLSearchParams(window.location.search);
+    //         const params = Object.fromEntries(urlSearchParams.entries());
+    //         axios.post('https://igsave.onrender.com', { url: params.url}, config).then((res) => {console.log(res)})
+    //         delay(3000)
+    //         const data = await axios.post('https://igsave.onrender.com/get', { url: params.url}, config)
+    //         setLinks(data.data.links)
+    //         setBase64(data.data.base64)
+    //     }
+    //     getLinks()
+    // }, [])    
 
     return(
         <>

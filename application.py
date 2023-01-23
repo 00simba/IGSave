@@ -10,7 +10,7 @@ from bson import json_util
 
 application = Flask(__name__)
 
-cors = CORS(application, resources={r"/*": {"origins": "*"}})
+cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
 
@@ -22,7 +22,7 @@ client = MongoClient(cluster)
 db = client.IGSave
 URLs = db.URLs
 
-@application.route('/', methods = ['POST', 'GET', 'OPTIONS'])
+@application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
 def index():
 
