@@ -25,7 +25,9 @@ URLs = db.URLs
 @application.route('/', methods = ['POST', 'GET', 'OPTIONS'])
 @cross_origin()
 def index():
-    if(req.method == 'POST'):
+
+    if(request.method == 'POST'):
+        
         req = request.json
         download_url = req['url']
 
