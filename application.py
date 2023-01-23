@@ -10,7 +10,7 @@ from bson import json_util
 
 application = Flask(__name__)
 
-cors = CORS(application)
+cors = CORS(application, resources={r"/*": {"origins": "*"}})
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
 
