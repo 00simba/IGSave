@@ -23,7 +23,7 @@ export default function Media(){
     type Media = {
         url: string;
         base64: string;
-        base64Vid: string;
+        //base64Vid: string;
     };
 
     useEffect(() => {
@@ -38,7 +38,7 @@ export default function Media(){
                 var tempObj: Media = {
                     url: item.url,
                     base64: item.base64,
-                    base64Vid: item?.base64Vid,
+                    //base64Vid: item?.base64Vid,
                 }
                 dataArr.push(tempObj)
             })
@@ -68,8 +68,9 @@ export default function Media(){
                 {media.map((item) => {  
 
                     var fileExtension: string;
-                    if(item?.base64Vid){
-                        fileExtension = '.mp4'
+                    if(item?.base64){
+    
+                        fileExtension = '.jpg'
                     }
                     else{
                         fileExtension = '.jpg'
@@ -83,10 +84,7 @@ export default function Media(){
                         <img className={mediaStyles.thumbNail} src={item.base64}/>
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
-                                {!item.base64Vid ? 
-                                    <a className={inter.className} href={item.url} target='_blank' rel='noreferrer' onClick={() => {downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
-                                    <a className={inter.className} href={item.url} target='_blank' rel='noreferrer' onClick={() => {downloadURI(item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
-                                }
+                                <a className={inter.className} href={item.url} target='_blank' rel='noreferrer' onClick={() => {downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
                             </div>
                         </div>
                     </div>

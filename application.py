@@ -67,7 +67,6 @@ def index():
 
         try:
             #Checks to see if post is a reel
-            #res1 = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
             responseImg = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
             responseVid = requests.get(media['items'][0]['video_versions'][0]['url'])
             all_links.append({'url': media['items'][0]['video_versions'][0]['url'], 'base64': "data:" + responseImg.headers['Content-Type'] + ";" + "base64," + base64.b64encode(responseImg.content).decode("utf-8"), 'base64Vid': "data:" + responseVid.headers['Content-Type'] + ";" + "base64," + base64.b64encode(responseVid.content).decode("utf-8")})
