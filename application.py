@@ -5,20 +5,12 @@ import urllib.request, requests
 import json
 from flask_cors import CORS, cross_origin
 import base64
-from pymongo import MongoClient
-from bson import json_util
 
 application = Flask(__name__)
 
 cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
-
-#Connect to MongoDB Database
-cluster = os.getenv('MONGO_URI')
-client = MongoClient(cluster)
-db = client.IGSave
-URLs = db.URLs
 
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
@@ -75,8 +67,10 @@ def index():
 
         try:
             #Checks to see if post is a reel
-            response = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
-            all_links.append({'url': media['items'][0]['video_versions'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
+            #res1 = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
+            responseImg = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
+            responseVid = requests.get(media['items'][0]['video_versions'][0]['url'])
+            all_links.append({'url': media['items'][0]['video_versions'][0]['url'], 'base64': "data:" + responseImg.headers['Content-Type'] + ";" + "base64," + base64.b64encode(responseImg.content).decode("utf-8"), 'base64Vid': "data:" + responseVid.headers['Content-Type'] + ";" + "base64," + base64.b64encode(responseVid.content).decode("utf-8")})
         except:
             mediaArray = media['items'][0]
 
@@ -94,20 +88,11 @@ def index():
                 #If the post is only a single image
                 response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
                 all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
-
-        #result = db_upload(request, all_links)
-
+        
         return {'links' : all_links}
+    
     else:
         return {'links' : all_links}
-
-# @application.route('/get', methods = ['POST', 'GET', 'OPTIONS'])
-# @cross_origin()
-# def get():
-#     req = request.json
-#     result = URLs.find_one({"id" : req['url']})
-#     URLs.delete_one({"id" : req['url']})
-#     return json.loads(json_util.dumps(result))
 
 if __name__ == "__main__":
     application.run()

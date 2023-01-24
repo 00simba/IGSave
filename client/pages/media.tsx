@@ -9,14 +9,9 @@ import '@/styles/Media.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-function delay(time: any) {
-    return new Promise(resolve => setTimeout(resolve, time));
-  }
-
 export default function Media(){
 
-    const [links, setLinks] = useState<any[]>([])
-    const [Base64, setBase64] = useState<any[]>([])
+    const [media, setMedia] = useState<Media[]>([])
 
     const config = {
         headers: {
@@ -25,45 +20,44 @@ export default function Media(){
          }
     }
 
+    type Media = {
+        url: string;
+        base64: string;
+        base64Vid: string;
+    };
+
     useEffect(() => {
         const getLinks = async () => {   
             const urlSearchParams = new URLSearchParams(window.location.search);
             const params = Object.fromEntries(urlSearchParams.entries());
-            const data = await axios.post('https://igsave.onrender.com', { url: params.url}, config)
-            
-            //Array contains object with key value pairs of base64 and url
+            const data = await axios.post('http://127.0.0.1:5000', { url: params.url}, config)   
 
-            let linksArr = new Array<string>
-            let base64Arr = new Array<string> 
+            var dataArr = new Array<Media>
 
-            data.data.links.map((item: any) => {
-                linksArr.push(item.url)
-                base64Arr.push(item.base64)
-            })            
-            
-            setLinks(linksArr)
-            setBase64(base64Arr)        
+            data.data.links.map((item: Media) => {
+                var tempObj: Media = {
+                    url: item.url,
+                    base64: item.base64,
+                    base64Vid: item?.base64Vid,
+                }
+                dataArr.push(tempObj)
+            })
+            setMedia(dataArr)       
         }
         getLinks()
     }, [])  
 
-    // useEffect(() => {
-    //     const getLinks = async () => {   
-    //         const urlSearchParams = new URLSearchParams(window.location.search);
-    //         const params = Object.fromEntries(urlSearchParams.entries());
-    //         axios.post('https://igsave.onrender.com', { url: params.url}, config).then((res) => {console.log(res)})
-    //         delay(3000)
-    //         const data = await axios.post('https://igsave.onrender.com/get', { url: params.url}, config)
-    //         setLinks(data.data.links)
-    //         setBase64(data.data.base64)
-    //     }
-    //     getLinks()
-    // }, [])    
+    function downloadURI(uri: string , name: string) {
+         var link = document.createElement("a");
+         link.download = name;
+         link.href = uri;
+         link.click();
+    }
 
     return(
         <>
             <main className={styles.header}>
-                <a href='https://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
+                <a href='http://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
             </main>
             <div>
                 <div className={styles.downloadDiv}>
@@ -71,13 +65,28 @@ export default function Media(){
                 </div>
             </div>
             <div id='cardContainer' className={styles.linkDiv}>
-                {links.map((value, index) => {   
+                {media.map((item) => {  
+
+                    var fileExtension: string;
+                    if(item?.base64Vid){
+                        fileExtension = '.mp4'
+                    }
+                    else{
+                        fileExtension = '.jpg'
+                    }
+
+                    var fileName: string;
+                    fileName = item.url.split('/')[5].split('.')[0]
+
                     return(
-                    <div className={mediaStyles.mediaCard} key={value}>
-                        <img className={mediaStyles.thumbNail} src={Base64[index]}/>
+                    <div className={mediaStyles.mediaCard} key={item.url}>
+                        <img className={mediaStyles.thumbNail} src={item.base64}/>
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
-                                <a className={inter.className} href={value} target='_blank' rel='noreferrer'>Download</a>
+                                {!item.base64Vid ? 
+                                    <a className={inter.className} href={item.url} download target='_blank' rel='noreferrer' onClick={() => {downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
+                                    <a className={inter.className} href={item.url} download target='_blank' rel='noreferrer' onClick={() => {downloadURI(item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
+                                }
                             </div>
                         </div>
                     </div>
