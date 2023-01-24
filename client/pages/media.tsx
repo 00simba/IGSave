@@ -30,7 +30,7 @@ export default function Media(){
         const getLinks = async () => {   
             const urlSearchParams = new URLSearchParams(window.location.search);
             const params = Object.fromEntries(urlSearchParams.entries());
-            const data = await axios.post('http://127.0.0.1:5000', { url: params.url}, config)   
+            const data = await axios.post('https://igsave.onrender.com', { url: params.url}, config)   
 
             var dataArr = new Array<Media>
 
@@ -83,11 +83,10 @@ export default function Media(){
                         <img className={mediaStyles.thumbNail} src={item.base64}/>
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
-                            <a className={inter.className} href={item.url} target='_blank' rel='noreferrer'>Download</a>
-                                {/* {!item.base64Vid ? 
+                                {!item.base64Vid ? 
                                     <a className={inter.className} href={item.url} target='_blank' rel='noreferrer' onClick={(e) => {e.preventDefault(); downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
                                     <a className={inter.className} href={item.url} target='_blank' rel='noreferrer' onClick={(e) => {e.preventDefault(); downloadURI(item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
-                                } */}
+                                }
                             </div>
                         </div>
                     </div>
