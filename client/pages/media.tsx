@@ -84,8 +84,8 @@ export default function Media(){
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
                                 {!item.base64Vid ? 
-                                    <a className={inter.className} href={item.url} target='_blank' rel='noreferrer' onClick={() => {downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
-                                    <a className={inter.className} href={item.url} target='_blank' rel='noreferrer' onClick={() => {downloadURI(item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
+                                    <a className={inter.className} onClick={() => {downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
+                                    <a className={inter.className} onClick={() => {downloadURI(item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
                                 }
                             </div>
                         </div>
