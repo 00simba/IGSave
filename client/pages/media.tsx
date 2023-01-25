@@ -1,4 +1,4 @@
-import axios, { AxiosInterceptorManager } from 'axios';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
@@ -6,12 +6,16 @@ import mediaStyles from '@/styles/Media.module.css';
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '@/components/footer';
 import '@/styles/Media.module.css'
+import { useRouter } from 'next/router';
+import LoadingIcons from 'react-loading-icons'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Media(){
 
     const [media, setMedia] = useState<Media[]>([])
+    const [url, setUrl] = useState('')
+    const router = useRouter()
 
     const config = {
         headers: {
@@ -47,13 +51,30 @@ export default function Media(){
         getLinks()
     }, [])  
 
+
     function downloadURI(url: string, uri: string , name: string) {
         var link = document.createElement("a");
         link.download = name;
         link.href = uri;
-        link.target = '_blank'
+        link.target = '_self'
         link.click();
     }
+
+    const handleSubmit = (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        var reUrl = /https?:\/\/(?:www\.)?instagram\.com(?:\/[^\/]+)?\/(?:p|reel)\/([^\/?#&]+){10}\//gm
+        if(url.match(reUrl)){
+          router.push({
+            pathname: '/media',
+            query: {url: url}, 
+          })
+        }
+        else{
+          var inputVal = (document.getElementById('url') as HTMLInputElement)  
+          inputVal.value = ''
+          setUrl('')
+        }
+      }
 
     return(
         <>
@@ -62,10 +83,21 @@ export default function Media(){
             </main>
             <div>
                 <div className={styles.downloadDiv}>
-                    <h1 className={inter.className}>Post Media</h1>  
+                    <h1 className={inter.className}>Your Media</h1>  
+
+                    <form className={styles.form} id='form' action="/" method='POST'>
+                        <input className={styles.input} id='url' type='text' name ='url' placeholder='Paste Instagram Link Here' value={url} onChange={(e) => setUrl(e.target.value)}></input>
+                    </form> 
+                    <button className={styles.button} onClick={handleSubmit}>Download</button>
                 </div>
             </div>
+
+            <div className={mediaStyles.loading}>
+                {!media.length && <LoadingIcons.ThreeDots fill="#8f0af8"/>}
+            </div>
+
             <div id='cardContainer' className={styles.linkDiv}>
+  
                 {media.map((item) => {  
 
                     var fileExtension: string;
@@ -92,7 +124,7 @@ export default function Media(){
                         </div>
                     </div>
                     )
-                })} 
+                })}
             </div>
             <div className={styles.contentDiv}>
 

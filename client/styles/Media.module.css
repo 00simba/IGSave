@@ -41,7 +41,13 @@
     font-size: large;
     color: white;
 }
-  
+
+.loading{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 2%;
+}
 
 @media screen and (min-width: 530px) and (max-width: 768px) {
   

@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '../components/footer'
-import axios from 'axios'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,19 +13,20 @@ export default function Home() {
   const [url, setUrl] = useState('')
   const router = useRouter()
 
-  const config = {
-    headers: {
-     'Access-Control-Allow-Origin' : '*',
-     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-     }
-  }
-
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    router.push({
-      pathname: '/media',
-      query: {url: url}, 
-    })
+    var reUrl = /https?:\/\/(?:www\.)?instagram\.com(?:\/[^\/]+)?\/(?:p|reel)\/([^\/?#&]+){10}\//gm
+    if(url.match(reUrl)){
+      router.push({
+        pathname: '/media',
+        query: {url: url}, 
+      })
+    }
+    else{
+      var inputVal = (document.getElementById('url') as HTMLInputElement)  
+      inputVal.value = ''
+      setUrl('')
+    }
   }
 
   return (
@@ -46,12 +46,11 @@ export default function Home() {
           Instagram Post Downloader
         </h1>
         <form className={styles.form} id='form' action="/" method='POST'>
-          <input className={styles.input} type='text' name ='url' placeholder='Paste Instagram Link Here' onChange={(e) => setUrl(e.target.value)}></input>
+          <input className={styles.input} id='url' type='text' name ='url' placeholder='Paste Instagram Link Here' value={url} onChange={(e) => setUrl(e.target.value)}></input>
         </form> 
         <button className={styles.button} onClick={handleSubmit}>Download</button>
       </div> 
       <div className={styles.contentDiv}>
-
       </div>
       <Footer/>
       <GoogleAnalytics measurementId='G-ZGXMMY4FE3' />
