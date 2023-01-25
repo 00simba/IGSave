@@ -47,21 +47,13 @@ export default function Media(){
         getLinks()
     }, [])  
 
-    function downloadURI(url: string, uri: string , name: string) {
-        //  var link = document.createElement("a");
-        //  link.download = name;
-        //  link.href = url;
-        //  link.target = "_blank";
-        //  link.click()
-        //  link.setAttribute('href', uri);
-        //  link.click()
-
-        const newWindow = window.open(url, '_blank')
-        newWindow?.document.createElement("a").setAttribute('id', 'link');
-        newWindow?.document.getElementById('link')?.setAttribute('download', name)
-        newWindow?.document.getElementById('link')?.setAttribute('href', uri)
-        newWindow?.document.getElementById('link')?.click()
-   
+    function downloadURI(uri: string , name: string) {
+        var link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        link.target = "_blank";
+        link.click();
+        return true;
     }
 
     return(
@@ -94,8 +86,8 @@ export default function Media(){
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
                                 {!item.base64Vid ? 
-                                    <a className={inter.className} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
-                                    <a className={inter.className} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
+                                    <a className={inter.className} target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item.base64, `${fileName}${fileExtension}`); return true}}>Download</a> : 
+                                    <a className={inter.className}  target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item?.base64Vid, `${fileName}${fileExtension}`);  return true}}>Download</a>
                                 }
                             </div>
                         </div>
