@@ -6,7 +6,6 @@ import mediaStyles from '@/styles/Media.module.css';
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '@/components/footer';
 import '@/styles/Media.module.css'
-import { TypeOfExpression } from 'typescript';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -48,11 +47,11 @@ export default function Media(){
         getLinks()
     }, [])  
 
-    function downloadURI(uri: string , name: string) {
+    function downloadURI(url: string, uri: string , name: string) {
         var link = document.createElement("a");
         link.download = name;
         link.href = uri;
-        link.target = '_self'
+        link.target = '_blank'
         link.click();
     }
 
@@ -86,8 +85,8 @@ export default function Media(){
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
                                 {!item.base64Vid ? 
-                                    <a className={inter.className} target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
-                                    <a className={inter.className}  target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
+                                    <a className={inter.className} target="_blank" rel="noreferrer" href={item.url} onClick={() =>{downloadURI(item.url, item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
+                                    <a className={inter.className}  target="_blank" rel="noreferrer" href={item.url} onClick={() => {downloadURI(item.url, item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
                                 }
                             </div>
                         </div>
