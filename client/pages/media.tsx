@@ -48,16 +48,11 @@ export default function Media(){
     }, [])  
 
     function downloadURI(url: string, uri: string , name: string) {
-        const newTab = new Window()
-        newTab.open(url, '_blank')?.focus()
-        newTab.document.createElement('a').setAttribute('id', 'link');
-        newTab.document.getElementById('id')?.setAttribute('download', name)
-        newTab.document.getElementById('id')?.setAttribute('href', uri)
-        newTab.document.getElementById('id')?.click()
-        // var link = document.createElement("a");
-        // link.download = name;
-        // link.href = uri;
-        // link.click();
+        var link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        link.click();
+        window.open(url, '_blank')
     }
 
     return(
