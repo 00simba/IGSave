@@ -49,11 +49,12 @@ export default function Media(){
 
     function downloadURI(url: string, uri: string , name: string) {
          var link = document.createElement("a");
+         link.setAttribute('id', 'downloadLink');
          link.download = name;
          link.href = uri;
          link.target = "_blank";
-         window.open(url)
-         link.click();
+         link.click()
+         link.setAttribute('href', url);
     }
 
     return(
