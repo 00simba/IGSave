@@ -56,11 +56,11 @@ export default function Media(){
         //  link.setAttribute('href', uri);
         //  link.click()
 
-        window.open(url, '_blank')
-        var link = document.createElement("a");
-        link.download = name;
-        link.href = uri;
-        link.click()
+        const newWindow = window.open(url, '_blank')
+        newWindow?.document.createElement("a").setAttribute('id', 'link');
+        newWindow?.document.getElementById('link')?.setAttribute('download', name)
+        newWindow?.document.getElementById('link')?.setAttribute('href', uri)
+        newWindow?.document.getElementById('link')?.click()
    
     }
 
