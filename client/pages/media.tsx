@@ -48,13 +48,20 @@ export default function Media(){
     }, [])  
 
     function downloadURI(url: string, uri: string , name: string) {
-         var link = document.createElement("a");
-         link.download = name;
-         link.href = url;
-         link.target = "_blank";
-         link.click()
-         link.setAttribute('href', uri);
-         link.click()
+        //  var link = document.createElement("a");
+        //  link.download = name;
+        //  link.href = url;
+        //  link.target = "_blank";
+        //  link.click()
+        //  link.setAttribute('href', uri);
+        //  link.click()
+
+        window.open(url, '_blank')
+        var link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        link.click()
+   
     }
 
     return(
@@ -87,8 +94,8 @@ export default function Media(){
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
                                 {!item.base64Vid ? 
-                                    <a className={inter.className} target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
-                                    <a className={inter.className} target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
+                                    <a className={inter.className} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
+                                    <a className={inter.className} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
                                 }
                             </div>
                         </div>
