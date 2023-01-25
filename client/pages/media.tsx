@@ -47,13 +47,12 @@ export default function Media(){
         getLinks()
     }, [])  
 
-    function downloadURI(uri: string , name: string) {
+    function downloadURI(url: string, uri: string , name: string) {
+        window.open(url, '_blank')?.focus()
         var link = document.createElement("a");
         link.download = name;
         link.href = uri;
-        link.target = "_blank";
         link.click();
-        return true;
     }
 
     return(
@@ -86,8 +85,8 @@ export default function Media(){
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
                                 {!item.base64Vid ? 
-                                    <a className={inter.className} target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); return downloadURI(item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
-                                    <a className={inter.className}  target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); return downloadURI(item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
+                                    <a className={inter.className} target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item.base64, `${fileName}${fileExtension}`)}}>Download</a> : 
+                                    <a className={inter.className}  target="_blank" rel="noreferrer" href={item.url} onClick={(e) => {e.preventDefault(); downloadURI(item.url, item?.base64Vid, `${fileName}${fileExtension}`)}}>Download</a>
                                 }
                             </div>
                         </div>
