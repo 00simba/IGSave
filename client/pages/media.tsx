@@ -16,6 +16,9 @@ export default function Media(){
     const [media, setMedia] = useState<Media[]>([])
     const [url, setUrl] = useState('')
     const router = useRouter()
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const paramUrl = params.url
 
     const config = {
         headers: {
@@ -30,26 +33,25 @@ export default function Media(){
         base64Vid: string;
     };
 
+    const getLinks = async () => { 
+        setMedia([])
+        const data = await axios.post('https://igsave.onrender.com', { url: paramUrl}, config)   
+        var dataArr = new Array<Media>
+        data.data.links.map((item: Media) => {
+            var tempObj: Media = {
+                url: item.url,
+                base64: item.base64,
+                base64Vid: item?.base64Vid,
+            }
+            dataArr.push(tempObj)
+        })
+        setMedia(dataArr)       
+    }
+
+
     useEffect(() => {
-        const getLinks = async () => {   
-            const urlSearchParams = new URLSearchParams(window.location.search);
-            const params = Object.fromEntries(urlSearchParams.entries());
-            const data = await axios.post('https://igsave.onrender.com', { url: params.url}, config)   
-
-            var dataArr = new Array<Media>
-
-            data.data.links.map((item: Media) => {
-                var tempObj: Media = {
-                    url: item.url,
-                    base64: item.base64,
-                    base64Vid: item?.base64Vid,
-                }
-                dataArr.push(tempObj)
-            })
-            setMedia(dataArr)       
-        }
         getLinks()
-    }, [])  
+    }, [paramUrl])  
 
 
     function downloadURI(url: string, uri: string , name: string) {
@@ -60,8 +62,8 @@ export default function Media(){
         link.click();
     }
 
-    const handleSubmit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
         var reUrl = /https?:\/\/(?:www\.)?instagram\.com(?:\/[^\/]+)?\/(?:p|reel)\/([^\/?#&]+){10}\//gm
         if(url.match(reUrl)){
           router.push({
@@ -83,7 +85,7 @@ export default function Media(){
             </main>
             <div>
                 <div className={styles.downloadDiv}>
-                    <h1 className={inter.className}>Your Media</h1>  
+                    <h1 className={inter.className}>Post Media Download</h1>  
 
                     <form className={styles.form} id='form' action="/" method='POST'>
                         <input className={styles.input} id='url' type='text' name ='url' placeholder='Paste Instagram Link Here' value={url} onChange={(e) => setUrl(e.target.value)}></input>
@@ -92,10 +94,11 @@ export default function Media(){
                 </div>
             </div>
 
+            {!media.length && 
             <div className={mediaStyles.loading}>
-                {!media.length && <LoadingIcons.ThreeDots fill="#8f0af8"/>}
-            </div>
-
+                <LoadingIcons.ThreeDots fill="#8f0af8"/>
+            </div>}
+            
             <div id='cardContainer' className={styles.linkDiv}>
   
                 {media.map((item) => {  
