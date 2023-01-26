@@ -16,9 +16,6 @@ export default function Media(){
     const [media, setMedia] = useState<Media[]>([])
     const [url, setUrl] = useState('')
     const router = useRouter()
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(urlSearchParams.entries());
-    const paramUrl = params.url
 
     const config = {
         headers: {
@@ -35,7 +32,11 @@ export default function Media(){
 
     const getLinks = async () => { 
         setMedia([])
-        const data = await axios.post('https://igsave.onrender.com', { url: paramUrl}, config)   
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+
+        const data = await axios.post('https://igsave.onrender.com', { url: params.url}, config)   
+
         var dataArr = new Array<Media>
         data.data.links.map((item: Media) => {
             var tempObj: Media = {
@@ -51,7 +52,7 @@ export default function Media(){
 
     useEffect(() => {
         getLinks()
-    }, [paramUrl])  
+    }, [router.query.url])  
 
 
     function downloadURI(url: string, uri: string , name: string) {
@@ -66,10 +67,10 @@ export default function Media(){
         e.preventDefault();
         var reUrl = /https?:\/\/(?:www\.)?instagram\.com(?:\/[^\/]+)?\/(?:p|reel)\/([^\/?#&]+){10}\//gm
         if(url.match(reUrl)){
-          router.push({
-            pathname: '/media',
-            query: {url: url}, 
-          })
+            router.push({
+                pathname: '/media',
+                query: {url: url}, 
+            })
         }
         else{
           var inputVal = (document.getElementById('url') as HTMLInputElement)  
