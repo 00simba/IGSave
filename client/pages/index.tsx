@@ -50,8 +50,19 @@ export default function Home() {
         </form> 
         <button className={styles.button} onClick={handleSubmit}>Download</button>
       </div> 
-      <div className={styles.contentDiv}>
+
+      <div className={styles.aboutDiv}>
+        <img src='/aboutLogo.png'></img>
+        <div className={styles.aboutParaDiv}>
+          <h1 className={inter.className}>Download Instagram Photos and Videos!</h1>
+          <br/>
+          <p className={inter.className}>IGSave helps you download Instagram Posts, Carousel, and Reels with ease!</p>
+          <br/>
+          <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such your phone, tablet, laptop, and desktop! </p>
+        </div>
       </div>
+
+
       <Footer/>
       <GoogleAnalytics measurementId='G-ZGXMMY4FE3' />
     </>

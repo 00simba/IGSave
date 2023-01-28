@@ -73,13 +73,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 8%;
+  margin-top: 5%;
   gap: 20px;
 }
 
 .contentDiv{
   height: 70vh;
 }
+
+.aboutDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  background-image: linear-gradient(to right, #f002dc, #8f0af8);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  color: black;
+  margin: 10% 10% 15% 10%;
+  text-align: center;
+}
+
+.aboutDiv img{
+  width: 100%;
+  padding: 5%;
+}
+
+.aboutParaDiv{
+  background-color: white;
+  padding: 5% 5% 6% 5%;
+  border-bottom: darkgray solid 2px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.aboutDiv p{
+  line-height: 1.5em;
+}
+
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
 
@@ -99,6 +129,15 @@
 
   .button{
     padding: 4% 20% 4% 20%;
+  }
+
+  .aboutDiv{
+    margin: 7% 10% 15% 10%;
+  }
+
+  .aboutDiv img{
+    width: 75%;
+    padding: 5%;
   }
 
 }
@@ -127,6 +166,21 @@
     width: 60%;
   }
 
+  .aboutDiv{
+    margin: 5% 10% 15% 10%;
+    flex-direction: row;
+  }
+
+  .aboutParaDiv{
+    border-radius: 0px 10px 10px 0px;
+    border-bottom: none;
+  }
+
+  .aboutDiv img{
+    width: 50%;
+    padding: 5%;
+  }
+
 }
 
 @media screen and (min-width: 1025px){
@@ -152,6 +206,22 @@
 
   .downloadButton{
     width: 50%;
+  }
+
+  .aboutDiv{
+    margin: 5% 10% 15% 10%;
+    flex-direction: row;
+  }
+
+  .aboutParaDiv{
+    border-radius: 0px 10px 10px 0px;
+    padding: 3% 5% 3% 5%;
+    border-bottom: none;
+  }
+
+  .aboutDiv img{
+    width: 50%;
+    padding: 5%;
   }
   
 }
