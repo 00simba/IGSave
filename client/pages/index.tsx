@@ -34,7 +34,7 @@ export default function Home() {
       <Head>
         <title>Download Instagram Images, Videos, & Reels</title>
         <meta name='description' content='Download any Instagram Image, Video, and Reel in HD using IGSave' />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
       <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>  
