@@ -95,7 +95,8 @@
 }
 
 .aboutDiv img{
-  width: 250px;
+  max-width: 100%;
+  height: auto;
   padding: 5%;
 }
 
@@ -136,7 +137,8 @@
   }
 
   .aboutDiv img{
-    width: 75%;
+    max-width: 75%;
+    height: auto;
     padding: 5%;
   }
 
@@ -177,7 +179,8 @@
   }
 
   .aboutDiv img{
-    width: 50%;
+    max-width: 50%;
+    height: auto;
     padding: 5%;
   }
 
@@ -220,7 +223,8 @@
   }
 
   .aboutDiv img{
-    width: 50%;
+    max-width: 50%;
+    height: auto;
     padding: 5%;
   }
   
