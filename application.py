@@ -56,6 +56,29 @@ def index():
             'x-requested-with': 'XMLHttpRequest'       	
         }
 
+        getHeaders = {
+            'authority': 'www.instagram.com',
+            'method': 'GET',
+            'path': '/p/Cmci1YJpAck/?__a=1&__d=dis',
+            'scheme': 'https',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'en-US,en;q=0.9',
+            'cache-control': 'max-age=0',
+            'cookie': 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; ig_nrcb=1; datr=QDcAY3K6EgsSgRBNdwVvBkB-; dpr=2; shbid="2028\0542237186360\0541707683625:01f7ae4f7f24983f285a96393de06cc32792957a8d41b9bcfdc8eca2a3a3018a03d243f0"; shbts="1676147625\0542237186360\0541707683625:01f7f66d20d530ba09c48b4d372a077bb63d2be9b5371f2bdeafd2647223240ec17750b9"; csrftoken=7mWAhMxnyK6gNmB5GPpNnL2BVobFZd6v; ds_user_id=2237186360; sessionid=2237186360%3ABAay6kKJ3lsTld%3A26%3AAYfgKRGAxW1FfVlgfn091HAO9QHjduZ-99rteIMgZQ; fbsr_124024574287414=k3OE1KjvGvr5NkPVDEof0lDTh75L4YA7Qm4GuKbdL58.eyJ1c2VyX2lkIjoiMTAwMDE0MjI4OTgzMDMzIiwiY29kZSI6IkFRQlFWTVRpejduazZEVzQzTlNRZGpCcUgzV2xkSWdCeEwwV0RDRE9KRDNUUU9JYkppd1pZcWFHZFNneTN5MXp1Zkd4Q1E0V1QyQ2lMLTF3aEpsdFlpOVVaTEJicE82NXpyb3ZjRXA4Ujg5R3doaDhlUXdlLVRRNmd2cVI5dkVyRXlJV2ZnOHBtUzlJMFRPNy1mb1o2RUpCeXA2TEE0emN3X2ljRnQzSUVWS3NtVnVZcGZEa1RPRGluVGc4OEF5eXBJU1BGUnZ1V2FSbWZNVVNhU282ckdRZzFIczBERHlzQmkxZ1ZLcTBsczhYc3l0ZkZGM1N0Z0l3dExTbUJNQllVQ3hEQldPVFRJTzdKRWRsdXVId2tUVURTT1BVd3FLa1hONjl1RHVpUjMxNkpMTlFfbzl3VG8xTUIxdHBQLXc1dmNUeWNMNVA4YlNrX1F6bjdhYnItT3BZeWc4N3FtbVI3TlBFNDc2bi01OUR6QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQkFEdG5sOHA0VWF4UDNWeG5WNWVhekJ6NzY2YWVlSUM1N3o0dE9neElwNFVVaElnM2JFNUpiVjRzQTcxd0JFaDVLczNVbmtNNlA4MmJzUnBaQk9aQWQwYWxzMlpCRldBaEo1QUxENzVDWkFaQ29aQlhGVVpBWkFaQUlVUUhBNm1IcWlEZlQ0UEI5WFJDRFhaQkppZE03TGp5U29mZ0U2a0twWHRZUEFDeVBVZXBDRm9QMGJ0SGdyUk1rWkQiLCJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImlzc3VlZF9hdCI6MTY3NjE1NDIzNn0; fbsr_124024574287414=k3OE1KjvGvr5NkPVDEof0lDTh75L4YA7Qm4GuKbdL58.eyJ1c2VyX2lkIjoiMTAwMDE0MjI4OTgzMDMzIiwiY29kZSI6IkFRQlFWTVRpejduazZEVzQzTlNRZGpCcUgzV2xkSWdCeEwwV0RDRE9KRDNUUU9JYkppd1pZcWFHZFNneTN5MXp1Zkd4Q1E0V1QyQ2lMLTF3aEpsdFlpOVVaTEJicE82NXpyb3ZjRXA4Ujg5R3doaDhlUXdlLVRRNmd2cVI5dkVyRXlJV2ZnOHBtUzlJMFRPNy1mb1o2RUpCeXA2TEE0emN3X2ljRnQzSUVWS3NtVnVZcGZEa1RPRGluVGc4OEF5eXBJU1BGUnZ1V2FSbWZNVVNhU282ckdRZzFIczBERHlzQmkxZ1ZLcTBsczhYc3l0ZkZGM1N0Z0l3dExTbUJNQllVQ3hEQldPVFRJTzdKRWRsdXVId2tUVURTT1BVd3FLa1hONjl1RHVpUjMxNkpMTlFfbzl3VG8xTUIxdHBQLXc1dmNUeWNMNVA4YlNrX1F6bjdhYnItT3BZeWc4N3FtbVI3TlBFNDc2bi01OUR6QSIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQkFEdG5sOHA0VWF4UDNWeG5WNWVhekJ6NzY2YWVlSUM1N3o0dE9neElwNFVVaElnM2JFNUpiVjRzQTcxd0JFaDVLczNVbmtNNlA4MmJzUnBaQk9aQWQwYWxzMlpCRldBaEo1QUxENzVDWkFaQ29aQlhGVVpBWkFaQUlVUUhBNm1IcWlEZlQ0UEI5WFJDRFhaQkppZE03TGp5U29mZ0U2a0twWHRZUEFDeVBVZXBDRm9QMGJ0SGdyUk1rWkQiLCJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImlzc3VlZF9hdCI6MTY3NjE1NDIzNn0; rur="EAG\0542237186360\0541707690380:01f7d7f1ab6403285368cb06f190a696ab4bdeb76ccd6c69c586e56f27d8d84a5de1bab1"',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': '"Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"',
+            'sec-ch-ua-mobile': '?1',
+            'sec-ch-ua-platform': '"Android"',
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'none',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+            'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36',
+            'viewport-width': '324',
+        }
+
         data = {
                 'username': f'' + os.getenv('USER'),
                 'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:'+ os.getenv('PASSWORD'),
@@ -64,12 +87,12 @@ def index():
         } 
 
         s = requests.Session()
-            
-        r = s.get(download_url + '?__a=1&__d=dis', headers=headers)
 
-        if(r.status_code != 200):
-            res = s.post('https://www.instagram.com/accounts/login/ajax/', headers=headers, data=data)
-            r = s.get(download_url + '?__a=1&__d=dis', headers=headers)
+        r = s.get(download_url + '?__a=1&__d=dis')
+
+        if('graphql' in r.json()):
+            res = s.post('https://www.instagram.com/accounts/login/ajax/', headers=headers, data=data)       
+            r = s.get(download_url + '?__a=1&__d=dis')
 
         media = r.json()
 
