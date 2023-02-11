@@ -81,6 +81,22 @@
   height: 70vh;
 }
 
+.cardDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  margin: 10% 10% 15% 10%;
+  padding: 5%;
+  text-align: center;
+}
+
+.cardDiv p{
+  line-height: 1.5em;
+}
+
 .aboutDiv{
   display: flex;
   flex-direction: column;
