@@ -88,11 +88,8 @@ def index():
 
         s = requests.Session()
 
+        res = s.post('https://www.instagram.com/accounts/login/ajax/', headers=headers, data=data)       
         r = s.get(download_url + '?__a=1&__d=dis')
-
-        if('graphql' in r.json()):
-            res = s.post('https://www.instagram.com/accounts/login/ajax/', headers=headers, data=data)       
-            r = s.get(download_url + '?__a=1&__d=dis')
 
         media = r.json()
 
