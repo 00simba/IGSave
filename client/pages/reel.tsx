@@ -37,13 +37,13 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
-      {/* <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div> */}
+      {/* <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>   */}
       <main className={styles.header}>
         <a href='https://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
       </main>
       <div className={styles.downloadDiv}>
         <h1 className={inter.className} id='downloadHeading'>
-          Instagram Post Downloader
+          Instagram Reel Downloader
         </h1>
         <form className={styles.form} id='form' action="/" method='POST'>
           <input className={styles.input} id='url' type='text' name ='url' placeholder='Paste Instagram Link Here' value={url} onChange={(e) => setUrl(e.target.value)}></input>
@@ -54,7 +54,7 @@ export default function Home() {
       <div className={styles.aboutDiv}>
         <img src='/aboutLogo.png'></img>
         <div className={styles.aboutParaDiv}>
-          <h1 className={inter.className}>Download Instagram Photos and Videos!</h1>
+          <h1 className={inter.className}>Download Instagram Reels!</h1>
           <br/>
           <p className={inter.className}>IGSave helps you download Instagram Posts, Carousel, and Reels with ease!</p>
           <br/>
@@ -117,6 +117,8 @@ export default function Home() {
           <p className={inter.className}>Carousels are a way of combining pictures and/or videos into one post. IGSave helps you download videos and/or images from a carousel.</p>
         </div>
       </div>
+
+
       <Footer/>
       <GoogleAnalytics measurementId='G-ZGXMMY4FE3' />
     </>

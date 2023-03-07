@@ -211,7 +211,7 @@
   }
 
   .aboutDiv img{
-    max-width: 50%;
+    width: 40%;
     height: auto;
     padding: 5%;
   }
@@ -262,12 +262,11 @@
 
   .aboutParaDiv{
     border-radius: 0px 10px 10px 0px;
-    padding: 3% 5% 3% 5%;
     border-bottom: none;
   }
 
   .aboutDiv img{
-    max-width: 50%;
+    width: 35%;
     height: auto;
     padding: 5%;
   }
