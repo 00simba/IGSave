@@ -106,7 +106,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
   color: black;
-  margin: 10% 10% 15% 10%;
+  margin: 7% 10% 15% 10%;
   text-align: center;
 }
 
@@ -124,6 +124,24 @@
 .aboutDiv p{
   line-height: 1.5em;
 }
+
+.divHeading{
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px 0px 10px 0px;
+}
+
+.subHeading{
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  padding: 0px 15px 15px 15px;
+  width: 100%;
+}
+
+.supportHeading{
+  text-align: center;
+}
+
 
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
@@ -147,7 +165,7 @@
   }
 
   .aboutDiv{
-    margin: 7% 10% 15% 10%;
+    margin: 7% 10% 5% 10%;
   }
 
   .aboutDiv img{
@@ -198,6 +216,18 @@
     padding: 5%;
   }
 
+  .divHeading{
+    width: 75%;
+  }
+
+  .aboutDiv{
+    margin: 5% 5% 5% 5%;
+  }
+
+  .subHeading{
+    border-radius: 0px 10px 10px 0px;
+  }
+
 }
 
 @media screen and (min-width: 1025px){
@@ -240,6 +270,18 @@
     max-width: 50%;
     height: auto;
     padding: 5%;
+  }
+
+  .divHeading{
+    width: 75%;
+  }
+
+  .aboutDiv{
+    margin: 3% 5% 3% 5%;
+  }
+
+  .subHeading{
+    border-radius: 0px 10px 10px 0px;
   }
   
 }
