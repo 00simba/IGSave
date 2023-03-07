@@ -5,8 +5,7 @@ import urllib.request, requests
 import json
 from flask_cors import CORS, cross_origin
 import base64
-import time
-import re
+from datetime import datetime
 
 application = Flask(__name__)
 
@@ -14,27 +13,47 @@ cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
 
+time = int(datetime.now().timestamp())
+
 data = {
-        'enc_password': f'#PWD_INSTAGRAM_BROWSER:10:{time}:'+ os.getenv('PASSWORD'),
         'username': f'' + os.getenv('USER'),
+        'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:'+ os.getenv('PASSWORD'),
         'queryParams': '{}',
-        'optIntoOneTap': 'false',
-        'trustedDeviceRecords': '{}',
+        'optIntoOneTap': 'false'
 } 
 
 headers = {
-    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-    "x-requested-with": "XMLHttpRequest",
-    "referer": "https://www.instagram.com/accounts/login/",
-    "x-csrftoken":'IbEsGeeenFTtKHolyV0q9kT3feMosvvW'
+    'authority': 'www.instagram.com',
+    'method': 'POST',
+    "path": "/api/v1/web/accounts/login/ajax/",
+    'scheme': 'https',
+    'accept': '*/*',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'en-US,en;q=0.9',
+    'content-length': '308',
+    'content-type': 'application/x-www-form-urlencoded',
+    "cookie" : 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; ig_nrcb=1; datr=QDcAY3K6EgsSgRBNdwVvBkB-; csrftoken=mpjOcrli9drmkNGKr9STmDuBsXJcAyv4; ds_user_id=57399500417; dpr=2; fbsr_124024574287414=2sxr7TpnSPlaESFLRQkp66111ajkGOusM-NKrzV4dU4.eyJ1c2VyX2lkIjoiMTAwMDE0MjI4OTgzMDMzIiwiY29kZSI6IkFRQk5hQUZZTl9LVGVlWE5VdFZxdUVGdHlRUUtkckxjREFabDFGeWtCbVRKT2lqQzhKLV9PRWxrd2dIdG1qUEFLXzVBd1dVYV94UmNCU0stMlFWamN3VkFnWGxjckk3RjVuOUtNc25oU3ZUaHVLVFdycHYtWUVocUgyRkEzYUVXTEZ1LUFLVlEyVzlTLUR5c296enpsdTVUZ3hRTm5tdlk4dXFwejhiNnhSSzIwajJkUWJCMzFCbWw0QWJteGtkSktwTWdUWHhzMlQ4SnhxNUlMQWNUaFpkUXBvVkpJMkpwUUFmLWxQakZjX3dURGZmX2dBaWtaUmlabGNYMVhRNllhdUNORkhaSnp3Z21DNmJndjhpdE5faldBcXVjQldqRDNZSlhENGlEdjZIeVJpelpxNnYycndjNHExQmtLQlh0b01DdTB6d3YyM2h6NUdjdWVOMDFNdlRnSXdtempNVWpFamdDM2NLM19sdWxRdyIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQkFLb29aQjVUTHBCZmZ3NVpCdWQ5VkpwRVFEOVluTm9OdkpMb293a1lwUHdkdWdKbVR4bjNDa1RHSWN6azBZdkxTRmVWcldxbVBjMU9rd3BzZEY4czhtdWJWZ3BKcWVON3lBOVc0WkE3cFNmUnZZa0Z1VmdQeGhYamVsb2NTUFFCSlJUdEU1SThrTVJxQTh1bHRhVWlNS2czTW9Hb3dWTnBDazhSeGpIZWRTWkFxREo2TEMwWkQiLCJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImlzc3VlZF9hdCI6MTY3ODIxMjk4NH0',
+    "origin": 'https://www.instagram.com',
+    "referer" : "https://www.instagram.com/",
+    'sec-ch-prefers-color-scheme': 'light',
+    'sec-ch-ua': '"Chromium";v="110", "Not A(Brand";v="24", "Google Chrome";v="110"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-fetch-dest' : 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'user-agent' : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36',
+    'viewport-width': '425',
+    'x-asbd-id': '198387',
+    'x-csrftoken' : 'mpjOcrli9drmkNGKr9STmDuBsXJcAyv4',
+    'x-ig-app-id': '936619743392459',
+    'x-ig-www-claim': '0',
+    'x-instagram-ajax': '1007064846',
+    'x-requested-with' : 'XMLHttpRequest',
 }
 
-userAgent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36'
-
 s = requests.Session()
-s.headers = {'userAgent' : userAgent}
-s.headers.update({'Referer': 'https://www.instagram.com/accounts/login/'})
-r = s.post('https://www.instagram.com/accounts/login/ajax/', data=data, headers=headers)
+r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data, headers=headers)
 print(r.content)
 
 
@@ -55,8 +74,7 @@ def index():
         else:
             download_url = download_url[0:40]
 
-        
-        r = s.get(download_url + '?__a=1&__d=dis', headers=headers)
+        r = s.get(download_url + '?__a=1&__d=dis')
 
         media = r.json()
         mediaArray = []
@@ -85,7 +103,7 @@ def index():
                 all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
         
         return {'links' : all_links}
-        
+    
     else:
         return {'links' : all_links}
 
