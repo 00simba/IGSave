@@ -70,7 +70,7 @@ export default function Home() {
           <br/>
           <p className={inter.className}>1. Copy the link for the post or reel.</p>
           <p className={inter.className}>2. Paste into the box above</p>
-          <p className={inter.className}>3. Hit the 'Download' Button and save to your device!</p>
+          <p className={inter.className}>3. Hit the `Download` Button and save to your device!</p>
         </div>
       </div>
 
