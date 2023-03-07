@@ -84,7 +84,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram videos are short-form video content shared on the social media platform Instagram. Instagram allows users to record videos directly within the app or upload videos from their device's camera roll. Use IGSave to download any Instagram video.</p>
+          <p className={inter.className}>Instagram videos are short-form video content shared on the social media platform Instagram. Instagram allows users to record videos directly within the app or upload videos from their devices camera roll. Use IGSave to download any Instagram video.</p>
         </div>
       </div>
 
