@@ -56,7 +56,7 @@ export default function Home() {
         <div className={styles.aboutParaDiv}>
           <h1 className={inter.className}>Download Instagram Photos and Videos!</h1>
           <br/>
-          <p className={inter.className}>IGSave helps you download Instagram Posts, Carousel, and Reels with ease!</p>
+          <p className={inter.className}>IGSave helps you download Instagram Photos, Videos, Carousels, and Reels with ease!</p>
           <br/>
           <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such running Windows, macOS, iPhone, or Android!</p>
         </div>
@@ -80,11 +80,11 @@ export default function Home() {
 
       <div className={styles.aboutDiv}>
         <div className={styles.divHeading}>
-          <h1 className={inter.className}>Image Download</h1>
+          <h1 className={inter.className}>Photos Download</h1>
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram image posts are visual content shared on the social media platform Instagram. These posts can include a variety of images, such as photographs, graphics, illustrations, and memes. Use IGSave to download pictures you desire at full resolution.</p>
+          <p className={inter.className}>Instagram photo posts are visual content shared on the social media platform Instagram. These posts can include a variety of images, such as photographs, graphics, illustrations, and memes. Use IGSave to download pictures you desire at full resolution.</p>
         </div>
       </div>
 

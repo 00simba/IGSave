@@ -17,17 +17,17 @@ export default function Footer(){
                 </div>
                 <div>
                     <ul className={inter.className}>
-                        <Link href='/image'>
-                            <li className={styles.li}>Image</li>
+                        <Link href='/photo'>
+                            <li className={styles.li}>Photos</li>
                         </Link>
                         <Link href='/video'>
-                            <li className={styles.li}>Video</li>
+                            <li className={styles.li}>Videos</li>
                         </Link>
                         <Link href='/reel'>
-                            <li className={styles.li}>Reel</li>
+                            <li className={styles.li}>Reels</li>
                         </Link>
                         <Link href='/carousel'>
-                            <li className={styles.li}>Carousel</li>
+                            <li className={styles.li}>Carousels</li>
                         </Link>
                     </ul>
                 </div>

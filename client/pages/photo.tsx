@@ -43,7 +43,7 @@ export default function Home() {
       </main>
       <div className={styles.downloadDiv}>
         <h1 className={inter.className} id='downloadHeading'>
-          Instagram Image Downloader
+          Instagram Photo Downloader
         </h1>
         <form className={styles.form} id='form' action="/" method='POST'>
           <input className={styles.input} id='url' type='text' name ='url' placeholder='Paste Instagram Link Here' value={url} onChange={(e) => setUrl(e.target.value)}></input>
@@ -54,7 +54,7 @@ export default function Home() {
       <div className={styles.aboutDiv}>
         <img src='/aboutLogo.png'></img>
         <div className={styles.aboutParaDiv}>
-          <h1 className={inter.className}>Download Instagram Images!</h1>
+          <h1 className={inter.className}>Download Instagram Photos!</h1>
           <br/>
           <p className={inter.className}>IGSave helps you to download any Instagram photo in full definition. You can download a single image or multiple images from a caroursel post.</p>
           <br/>
@@ -75,12 +75,12 @@ export default function Home() {
       </div>
 
       <div className={styles.supportHeading}>
-        <h1 className={inter.className}>Image Downloader</h1>
+        <h1 className={inter.className}>Photo Downloader</h1>
       </div>
 
       <div className={styles.aboutDiv}>
         <div className={styles.divHeading}>
-          <h1 className={inter.className}>Image Download</h1>
+          <h1 className={inter.className}>Photo Download</h1>
         </div>
         <div className={styles.subHeading}>
           <br/>
