@@ -56,9 +56,9 @@ export default function Home() {
         <div className={styles.aboutParaDiv}>
           <h1 className={inter.className}>Download Instagram Reels!</h1>
           <br/>
-          <p className={inter.className}>IGSave helps you download Instagram Posts, Carousel, and Reels with ease!</p>
+          <p className={inter.className}>IGSave also enables you to download your favourite reels at high definition straight to your device.</p>
           <br/>
-          <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such your phone, tablet, laptop, and desktop! </p>
+          <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such running Windows, macOS, iPhone, or Android!</p>
         </div>
       </div>
 
@@ -75,27 +75,7 @@ export default function Home() {
       </div>
 
       <div className={styles.supportHeading}>
-        <h1 className={inter.className}>IGSave Supports</h1>
-      </div>
-
-      <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Photo Download</h1>
-        </div>
-        <div className={styles.subHeading}>
-          <br/>
-          <p className={inter.className}>IGSave helps you to download any Instagram photo in full definition. You can download a single image or multiple images from a caroursel post.</p>
-        </div>
-      </div>
-
-      <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Video Download</h1>
-        </div>
-        <div className={styles.subHeading}>
-          <br/>
-          <p className={inter.className}>Instagram video download is supported where videos are downloaded at full resolution from single post or carousel posts.</p>
-        </div>
+        <h1 className={inter.className}>Reel Downloader</h1>
       </div>
 
       <div className={styles.aboutDiv}>
@@ -104,20 +84,9 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>IGSave also enables you to download your favourite reels at high definition straight to your device.</p>
+          <p className={inter.className}>Instagram Reels are a feature on the social media platform Instagram that allows users to create and share short-form video content. Reels are typically 15 to 30 seconds in length and are designed to be fun, creative, and engaging. IGSave also enables you to download your favourite reels at high definition straight to your device.</p>
         </div>
       </div>
-
-      <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Carousel Download</h1>
-        </div>
-        <div className={styles.subHeading}>
-          <br/>
-          <p className={inter.className}>Carousels are a way of combining pictures and/or videos into one post. IGSave helps you download videos and/or images from a carousel.</p>
-        </div>
-      </div>
-
 
       <Footer/>
       <GoogleAnalytics measurementId='G-ZGXMMY4FE3' />

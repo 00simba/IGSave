@@ -96,9 +96,12 @@ export default function Media(){
             </div>
 
             {!media.length && 
-            <div className={mediaStyles.loading}>
-                <LoadingIcons.ThreeDots fill="#8f0af8"/>
-            </div>}
+            <>
+                <div className={mediaStyles.loading}>
+                    <LoadingIcons.ThreeDots fill="#8f0af8"/>
+                </div>
+                <div className={styles.contentDiv}/>
+            </>}
             
             <div id='cardContainer' className={styles.linkDiv}>
   
@@ -130,9 +133,7 @@ export default function Media(){
                     )
                 })}
             </div>
-            <div className={styles.contentDiv}>
-
-            </div>
+ 
             <Footer/>
             <GoogleAnalytics measurementId='G-ZGXMMY4FE3'/>
         </>

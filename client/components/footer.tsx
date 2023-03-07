@@ -2,6 +2,9 @@ import styles from '@/styles/Footer.module.css'
 import homeStyles from '@/styles/Home.module.css'
 import { Inter } from '@next/font/google'
 import Link from 'next/link'
+import React from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,7 +33,9 @@ export default function Footer(){
                 </div>
                 <div>
                     <ul className={inter.className}>
-                        <li className={styles.li}>Contact</li>
+                        <Popup trigger={ <li className={styles.li}>Contact</li>} position="top center">
+                            <div className={inter.className}>Email: flaskgram@gmail.com</div>
+                        </Popup>
                         <Link href='/terms-and-conditions'>
                             <li className={styles.li}>Terms & Conditions</li>
                         </Link>
@@ -40,6 +45,8 @@ export default function Footer(){
                     </ul>
                 </div> 
             </div> 
+
+            
             <div className={styles.copyrightBanner}>
                 <p className={inter.className}>&copy; {new Date().getFullYear()} Copyright: igsave.io</p>
             </div>

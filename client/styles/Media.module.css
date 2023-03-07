@@ -46,7 +46,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-top: 5%;
+  padding-top: 10%;
 }
 
 @media screen and (min-width: 530px) and (max-width: 768px) {
@@ -61,6 +61,10 @@
   
   .mediaCard{
     width: 30%;
+  }
+
+  .loading{
+    padding-top: 5%;
   }
 
 }
