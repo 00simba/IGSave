@@ -5,15 +5,13 @@ import urllib.request, requests
 import json
 from flask_cors import CORS, cross_origin
 import base64
-from datetime import datetime
+import time
 
 application = Flask(__name__)
 
 cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
-
-time = int(datetime.now().timestamp())
 
 data = {
         'username': f'' + os.getenv('USER'),
@@ -64,6 +62,8 @@ def index():
     all_links = []
 
     if(request.method == 'POST'):
+
+        time.sleep(0.01)
 
         req = request.json
         download_url = req['url']

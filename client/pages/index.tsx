@@ -84,7 +84,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram photo posts are visual content shared on the social media platform Instagram. These posts can include a variety of images, such as photographs, graphics, illustrations, and memes. Use IGSave to download pictures you desire at full resolution.</p>
+          <p className={inter.className}>Use our Instagram photo downloader to save content directly to your device. IGSave helps you to download pictures of your interest at a full resolution!</p>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram videos are short-form video content shared on the social media platform Instagram. Instagram allows users to record videos directly within the app or upload videos from their devices camera roll. Use IGSave to download any Instagram video.</p>
+          <p className={inter.className}>Use IGSave to download videos to your device for free. IGSave Video Downloader lets you download videos from posts or carousels in high definition!</p>
         </div>
       </div>
 
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram Reels are a feature on the social media platform Instagram that allows users to create and share short-form video content. Reels are typically 15 to 30 seconds in length and are designed to be fun, creative, and engaging. IGSave also enables you to download your favourite reels at high definition straight to your device.</p>
+          <p className={inter.className}>Download your favourite Reels using the IGSave Reel Downloader. IGSave saves Reels for you in the high definiton and straight to your library!</p>
         </div>
       </div>
 
@@ -114,7 +114,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram carousel posts are a type of Instagram post that allows users to share up to 10 images or videos in a single post. With carousel posts, users can swipe through the images or videos to view all the content in the post. IGSave helps you download videos and/or images from a carousel.</p>
+          <p className={inter.className}>IGSave helps you download multi-content media such as carousels. Use IGSave to extract photos and/or videos from carousels you wish!</p>
         </div>
       </div>
       <Footer/>
