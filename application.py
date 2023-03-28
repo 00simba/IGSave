@@ -79,6 +79,7 @@ def index():
             download_url = download_url[0:40]
 
         r = getJSON(download_url + '?__a=1&__d=dis')
+        print(r.content)
 
         media = r.json()
         mediaArray = []
