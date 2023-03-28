@@ -6,6 +6,7 @@ import json
 from flask_cors import CORS, cross_origin
 import base64
 import time
+import backoff
 
 application = Flask(__name__)
 
@@ -57,13 +58,12 @@ print(r.content)
 
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
+@backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
 def index():
 
     all_links = []
 
     if(request.method == 'POST'):
-
-        time.sleep(0.01)
 
         req = request.json
         download_url = req['url']
