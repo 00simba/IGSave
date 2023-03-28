@@ -56,9 +56,13 @@ r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=dat
 print(r.content)
 
 
+@backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
+def getJSON(url):
+    r = s.get(url)
+    return r
+
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
-@backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
 def index():
 
     all_links = []
@@ -74,7 +78,7 @@ def index():
         else:
             download_url = download_url[0:40]
 
-        r = s.get(download_url + '?__a=1&__d=dis')
+        r = getJSON(download_url + '?__a=1&__d=dis')
 
         media = r.json()
         mediaArray = []
