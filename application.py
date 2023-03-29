@@ -6,6 +6,7 @@ import json
 from flask_cors import CORS, cross_origin
 import base64
 import time
+import backoff
 
 application = Flask(__name__)
 
@@ -54,6 +55,10 @@ s = requests.Session()
 r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data, headers=headers)
 print(r.content)
 
+@backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
+def getJSON(url):
+    r = s.get(url)
+    return r
 
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
@@ -72,8 +77,7 @@ def index():
         else:
             download_url = download_url[0:40]
 
-        r = s.get(download_url + '?__a=1&__d=dis')
-        print(r.content)
+        r = getJSON(download_url + '?__a=1&__d=dis')
 
         media = r.json()
         mediaArray = []
