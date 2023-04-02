@@ -51,13 +51,35 @@ headers = {
     'x-requested-with' : 'XMLHttpRequest',
 }
 
+getHeaders = {
+    'authority': 'www.instagram.com',
+    'method': 'GET',
+    'scheme': 'https',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'en-US,en;q=0.9',
+    'cache-control': 'max-age=0',
+    'cookie': 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; ig_nrcb=1; datr=QDcAY3K6EgsSgRBNdwVvBkB-; shbid="2028\0542237186360\0541711574683:01f7885efc0cdd6a9c2af3a750d21dbb7bda580dabe9c87be3df6532cef209006ae2ad0c"; shbts="1680038683\0542237186360\0541711574683:01f7ca084f07ce34887509e1495aa2843428a9a281cfbf2dbeefb65569e26ef66f56d67b"; dpr=2; ds_user_id=58604319986; fbsr_124024574287414=BYDvxujK62i3Aw2D3JS6YG_MLQm_2uj8a9_wbmei4hQ.eyJ1c2VyX2lkIjoiMTAwMDE0MjI4OTgzMDMzIiwiY29kZSI6IkFRQTd1Z1Q3X3hyODNaaDJaR1B6ZUdhUGlnaW4wcEh3YmxVcjNKNVc0a3VSOGlCX1dWb2JMdnNvTHZLaHRqSzJXNEFsMktXR0xISlMyTXpvS0d0N2dxWXhlQXpLYWNMOTIySmpYdExma1NESUZEcWw3ampRb0RlX2NSVjRlb1JQYjh2Ujl5S3dvN3hlZkNyTlZfTGVoRGYxQ1k2VUMwdDhtd1dQckRGd29zUS1HaS1QZ2VqVWFfdUI1Nm1NemRxblY2WXpsSHc2T25hMWVaS045UXdLMmJBbG1TYVpxVFhMV0lZN0t1MjEwcXl2QS1EWlg0Nl83OHk1aXdKamc3dERMRUlKOTRqQXBKbGk4UWZxN2VmU29Kb25qY0lya2dmWHczVEt3ZUkzNmpXNWFCdUZHLXJlb25xT2NyMl81RV9iZHd1cUdPbXNiMmJoSXNldmVkemE1dFRKdXBQQ3JLeUwtZFFzdFpIM0taUkhIdyIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQkFNRlpBZHJYQ1pBNURDY1haQ2pDdVpCS1BsNnoybUdaQ0RWQ0FJQ2hJbXQxWkFpY29QbmxXVU45QXdaQUM0UGdaQXg4SzRDZXNTZVhlMDFWYlFrelRvaXVZOVVhdmkyenY4aUNHZFBUaHVUdzZhMjF1RVdtYjVpMXpzeFJLWkJIV2o3MWNXTU5SZWZjWkFnUHhLQ0RVN3VGaGYwMVJaQmIwOVpBajJ1MXhhTXF5V0JOb205bUZFS3pRTmtaRCIsImFsZ29yaXRobSI6IkhNQUMtU0hBMjU2IiwiaXNzdWVkX2F0IjoxNjgwNDcxMzQxfQ; csrftoken=pewYUcj4lonHEXEM4nQ5XHYxeyrLyQRI; sessionid=58604319986%3AEUwpQmmligHHvK%3A12%3AAYf030upKnJWCN5qWd-a7RT7gPmBfs3RkWsCNYsS0w; fbsr_124024574287414=BYDvxujK62i3Aw2D3JS6YG_MLQm_2uj8a9_wbmei4hQ.eyJ1c2VyX2lkIjoiMTAwMDE0MjI4OTgzMDMzIiwiY29kZSI6IkFRQTd1Z1Q3X3hyODNaaDJaR1B6ZUdhUGlnaW4wcEh3YmxVcjNKNVc0a3VSOGlCX1dWb2JMdnNvTHZLaHRqSzJXNEFsMktXR0xISlMyTXpvS0d0N2dxWXhlQXpLYWNMOTIySmpYdExma1NESUZEcWw3ampRb0RlX2NSVjRlb1JQYjh2Ujl5S3dvN3hlZkNyTlZfTGVoRGYxQ1k2VUMwdDhtd1dQckRGd29zUS1HaS1QZ2VqVWFfdUI1Nm1NemRxblY2WXpsSHc2T25hMWVaS045UXdLMmJBbG1TYVpxVFhMV0lZN0t1MjEwcXl2QS1EWlg0Nl83OHk1aXdKamc3dERMRUlKOTRqQXBKbGk4UWZxN2VmU29Kb25qY0lya2dmWHczVEt3ZUkzNmpXNWFCdUZHLXJlb25xT2NyMl81RV9iZHd1cUdPbXNiMmJoSXNldmVkemE1dFRKdXBQQ3JLeUwtZFFzdFpIM0taUkhIdyIsIm9hdXRoX3Rva2VuIjoiRUFBQnd6TGl4bmpZQkFNRlpBZHJYQ1pBNURDY1haQ2pDdVpCS1BsNnoybUdaQ0RWQ0FJQ2hJbXQxWkFpY29QbmxXVU45QXdaQUM0UGdaQXg4SzRDZXNTZVhlMDFWYlFrelRvaXVZOVVhdmkyenY4aUNHZFBUaHVUdzZhMjF1RVdtYjVpMXpzeFJLWkJIV2o3MWNXTU5SZWZjWkFnUHhLQ0RVN3VGaGYwMVJaQmIwOVpBajJ1MXhhTXF5V0JOb205bUZFS3pRTmtaRCIsImFsZ29yaXRobSI6IkhNQUMtU0hBMjU2IiwiaXNzdWVkX2F0IjoxNjgwNDcxMzQxfQ; rur="EAG\05458604319986\0541712007848:01f76a236cecddefe3cc81a5fd979d95d4ed2e61a2fc97449b45fc2073d16a3a1ce051d8"',
+    'sec-ch-prefers-color-scheme': 'light',
+    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
+    'viewport-width': '425'
+}
+
 s = requests.Session()
 r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data, headers=headers)
 print(r.content)
 
 @backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
 def getJSON(url):
-    r = s.get(url)
+    r = s.get(url, headers=getHeaders)
     return r
 
 @application.route('/', methods = ['POST', 'GET'])
