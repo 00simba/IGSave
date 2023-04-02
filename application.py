@@ -44,7 +44,7 @@ headers = {
     'user-agent' : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
     'viewport-width': '425',
     'x-asbd-id': '198387',
-    'x-csrftoken' : 'omem4YL9qqhfhHh8Xz0m7wsgBA4hYxIp',
+    'x-csrftoken' : 'pewYUcj4lonHEXEM4nQ5XHYxeyrLyQRI',
     'x-ig-app-id': '1217981644879628',
     'x-ig-www-claim': 'hmac.AR2YJUm4-djg30GSAO7GeOXGzk0BpGjoy1p98_o1I58hs-K3',
     'x-instagram-ajax': '1007228779',
