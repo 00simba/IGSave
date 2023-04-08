@@ -31,7 +31,7 @@ headers = {
     'accept-language': 'en-US,en;q=0.9',
     'content-length': '292',
     'content-type': 'application/x-www-form-urlencoded',
-    "cookie" : 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; ig_nrcb=1; datr=QDcAY3K6EgsSgRBNdwVvBkB-; csrftoken=uP90iBMBKbKxk8qBvs5GEYfnNF5SLM1f; dpr=2',
+    "cookie" : 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; datr=QDcAY3K6EgsSgRBNdwVvBkB-; dpr=2; ds_user_id=58604319986; csrftoken=Sm5tUlvvxsdiDB6WDoru1RcmaVKlMu5k; rur="EAG\05458604319986\0541712522645:01f7ef2fc0b93f39ceb9720aef2aca029cf98234d0f8c4dbca5fe65bba2f6163c20c5b46"',
     "origin": 'https://www.instagram.com',
     "referer" : "https://www.instagram.com/",
     'sec-ch-prefers-color-scheme': 'light',
@@ -44,10 +44,10 @@ headers = {
     'user-agent' : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
     'viewport-width': '425',
     'x-asbd-id': '198387',
-    'x-csrftoken' : 'uP90iBMBKbKxk8qBvs5GEYfnNF5SLM1f',
+    'x-csrftoken' : 'Sm5tUlvvxsdiDB6WDoru1RcmaVKlMu5k',
     'x-ig-app-id': '936619743392459',
-    'x-ig-www-claim': '0',
-    'x-instagram-ajax': '1007242444',
+    'x-ig-www-claim': 'hmac.AR2YJUm4-djg30GSAO7GeOXGzk0BpGjoy1p98_o1I58hs0WO',
+    'x-instagram-ajax': '1007275374',
     'x-requested-with' : 'XMLHttpRequest',
 }
 
@@ -59,7 +59,7 @@ getHeaders = {
     'accept-encoding': 'gzip, deflate, br',
     'accept-language': 'en-US,en;q=0.9',
     'cache-control': 'max-age=0', 
-    'cookie': 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; ig_nrcb=1; datr=QDcAY3K6EgsSgRBNdwVvBkB-; dpr=2; ds_user_id=58604319986; sessionid=58604319986:dKedo2Ii4k3vjj:5:AYdAs97dy1PwlxlkUPUV5TDcCQ1a1Kfxxc6cnUxkOw; csrftoken=uP90iBMBKbKxk8qBvs5GEYfnNF5SLM1f; rur="RVA\05458604319986\0541712184374:01f7c96c2d3fec12bb51ebaf0fb08f7bb8df397e4e07337fbfdd33747ef9d81d3870cc3c"',
+    'cookie': 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; datr=QDcAY3K6EgsSgRBNdwVvBkB-; dpr=2; ds_user_id=58604319986; csrftoken=Nc1xYGEaPe10Cr8D2NceZp5rZjsrt42o; sessionid=58604319986:Bc1d6b0a4qp7Bw:25:AYeZDl4XhZC1OFKr3wgd6rzpq82gkHWNTwjzqPXAOQ; rur="EAG\05458604319986\0541712522918:01f72099fa8c1a48aab5e27aaa511d89984a75fce9160368ace4e31ebaacd0b547d9b0e1"',
     'sec-ch-prefers-color-scheme': 'light',
     'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
     'sec-ch-ua-mobile': '?1',
@@ -100,6 +100,8 @@ def index():
             download_url = download_url[0:40]
 
         r = getJSON(download_url + '?__a=1&__d=dis')
+
+        print(r.content)
 
         media = r.json()
         mediaArray = []
