@@ -125,7 +125,7 @@ def login():
     getHeadersCookie = re.sub("ig_did=(.*?)\;", 'ig_did=' + newCookies['ig_did'] + ';', getHeadersCookie)
     #Replace mid
     getHeadersCookie = re.sub("mid=(.*?)\;", 'mid=' + newCookies['mid'] + ';', getHeadersCookie)
-    #Replace getHeadesr with new string
+    #Replace getHeaders with new string
     getHeaders['cookie'] = getHeadersCookie
 
     #Finally login

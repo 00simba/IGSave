@@ -71,12 +71,10 @@ export default function Media(){
                 pathname: '/media',
                 query: {url: url}, 
             })
-        }
-        else{
-          var inputVal = (document.getElementById('url') as HTMLInputElement)  
-          inputVal.value = ''
-          setUrl('')
-        }
+        } 
+        var inputVal = (document.getElementById('url') as HTMLInputElement)  
+        inputVal.value = ''
+        setUrl('')   
       }
 
     return(

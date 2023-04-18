@@ -231,7 +231,7 @@ export default function Home() {
             <br/>
             <p>If you have any questions about this Privacy Policy, You can contact us:</p>
             <ul>
-            <li>By email: flaskgram@gmail.com</li>
+            <li>By email: igsavedotio@gmail.com</li>
             </ul>
           </div>
       </div>

@@ -34,7 +34,7 @@ export default function Footer(){
                 <div>
                     <ul className={inter.className}>
                         <Popup trigger={ <li className={styles.li}>Contact</li>} position="top center">
-                            <div className={inter.className}>Email: flaskgram@gmail.com</div>
+                            <div className={inter.className}>Email: igsavedotio@gmail.com</div>
                         </Popup>
                         <Link href='/terms-and-conditions'>
                             <li className={styles.li}>Terms & Conditions</li>
