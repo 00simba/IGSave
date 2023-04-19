@@ -98,12 +98,12 @@ updateHeaders = {
 s = requests.Session()
 
 def login():
+
+    s.cookies.clear()
     
     r = s.get('https://www.instagram.com/api/v1/web/accounts/login/ajax/', headers=updateHeaders)
 
     newCookies = r.cookies.get_dict()
-
-    print(newCookies)
 
     #Update headers
 
