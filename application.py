@@ -103,6 +103,8 @@ def login():
 
     newCookies = r.cookies.get_dict()
 
+    print(newCookies)
+
     #Update headers
 
     currentCookie = headers['cookie']
