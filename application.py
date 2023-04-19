@@ -52,56 +52,13 @@ headers = {
     'x-requested-with' : 'XMLHttpRequest',
 }
 
-getHeaders = {
-    'authority': 'www.instagram.com',
-    'method': 'GET',
-    'scheme': 'https',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'en-US,en;q=0.9',
-    'cache-control': 'max-age=0', 
-    'cookie': 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; datr=QDcAY3K6EgsSgRBNdwVvBkB-; dpr=2; ig_nrcb=1; ds_user_id=58604319986; csrftoken=iLhYgVIfmHXfsOmRr4eNXXThM5DmaxTf; sessionid=58604319986:DLCoRnkdlsINWt:3:AYfuGIFbt-gW0I4_QKQwa4BHWvtI9el6_5GFELqvZg; rur="RVA\05458604319986\0541713323135:01f7f6ab20cfcdcfd1ec98bb86f619b92475647a8e7e90b2dfd4d87f875b607b99476a0e"',
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'cross-site',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    'viewport-width': '425'
-}
-
-updateHeaders = {
-    'authority': 'www.instagram.com',
-    'method': 'GET',
-    'scheme': 'https',
-    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'en-US,en;q=0.9',
-    'cache-control': 'max-age=0', 
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'document',
-    'sec-fetch-mode': 'navigate',
-    'sec-fetch-site': 'cross-site',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    'viewport-width': '425'
-}
-
 s = requests.Session()
 
 def login():
 
     s.cookies.clear()
     
-    r = s.get('https://www.instagram.com/api/v1/web/accounts/login/ajax/', headers=updateHeaders)
+    r = s.get('https://www.instagram.com/api/v1/web/accounts/login/ajax/')
 
     newCookies = r.cookies.get_dict()
 
@@ -118,18 +75,6 @@ def login():
     headers['x-csrftoken'] = newCookies['csrftoken']
     headers['cookie'] = currentCookie
 
-    #Update getHeaders
-
-    getHeadersCookie = getHeaders['cookie']
-    #Replace csrf
-    getHeadersCookie = re.sub("csrftoken=(.*?)\;", 'csrftoken=' + newCookies['csrftoken'] + ';', getHeadersCookie)
-    #Replace ig_did
-    getHeadersCookie = re.sub("ig_did=(.*?)\;", 'ig_did=' + newCookies['ig_did'] + ';', getHeadersCookie)
-    #Replace mid
-    getHeadersCookie = re.sub("mid=(.*?)\;", 'mid=' + newCookies['mid'] + ';', getHeadersCookie)
-    #Replace getHeaders with new string
-    getHeaders['cookie'] = getHeadersCookie
-
     #Finally login
     r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data, headers=headers)
 
@@ -139,7 +84,7 @@ login()
 
 @backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
 def getJSON(url):
-    r = s.get(url, headers=getHeaders)
+    r = s.get(url)
     return r
 
 @application.route('/', methods = ['POST', 'GET'])
@@ -161,9 +106,11 @@ def index():
 
         r = getJSON(download_url + '?__a=1&__d=dis')
 
+        print(r.content)
+
         media = r.json()
 
-        #Check if media array is valid, otherwise login() and getJSON()
+        #Check if media is valid, otherwise login() and getJSON()
         if 'items' not in media:
             login()
             r = getJSON(download_url + '?__a=1&__d=dis')
