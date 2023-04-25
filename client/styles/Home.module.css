@@ -65,7 +65,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: larger;
 }
 
 .linkDiv{
@@ -117,12 +116,13 @@
 
 .aboutParaDiv{
   background-color: white;
-  padding: 5% 5% 6% 5%;
+  padding: 3%;
   border-radius: 0px 0px 10px 10px;
 }
 
 .aboutDiv p{
   line-height: 1.5em;
+  font-size: 1.1em;
 }
 
 .divHeading{
@@ -141,7 +141,6 @@
 .supportHeading{
   text-align: center;
 }
-
 
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
@@ -172,6 +171,10 @@
     width: 70%;
     height: auto;
     padding: 5%;
+  }
+
+  .supportHeading{
+    font-size: medium;
   }
 
 }
@@ -281,6 +284,22 @@
 
   .subHeading{
     border-radius: 0px 10px 10px 0px;
+  }
+
+  .downloadHeading{
+    font-size: x-large;
+  }
+
+  .downloadDiv{
+    font-size: x-large;
+  }
+
+  .supportHeading{
+    font-size: x-large;
+  }
+
+  .divHeading{
+    font-size: large;
   }
   
 }

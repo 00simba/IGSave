@@ -54,7 +54,9 @@ export default function Home() {
       <div className={styles.aboutDiv}>
         <img src='/aboutLogo.png'></img>
         <div className={styles.aboutParaDiv}>
-          <h1 className={inter.className}>Download Instagram Photos and Videos!</h1>
+          <div className={styles.downloadHeading}>
+            <h1 className={inter.className}>Download Instagram Photos and Videos!</h1>
+          </div>
           <br/>
           <p className={inter.className}>IGSave helps you download Instagram Photos, Videos, Carousels, and Reels with ease!</p>
           <br/>
