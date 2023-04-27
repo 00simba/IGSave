@@ -7,15 +7,12 @@ from flask_cors import CORS, cross_origin
 import base64
 import backoff
 import re
-from datetime import datetime
 
 application = Flask(__name__)
 
 cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
-
-time = int(datetime.now().timestamp())
 
 data = {
         'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:'+ os.getenv('PASSWORD'),
