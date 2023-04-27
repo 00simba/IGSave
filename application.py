@@ -5,9 +5,9 @@ import urllib.request, requests
 import json
 from flask_cors import CORS, cross_origin
 import base64
-import time
 import backoff
 import re
+from datetime import datetime
 
 application = Flask(__name__)
 
@@ -15,9 +15,11 @@ cors = CORS(application)
 application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
 
+time = int(datetime.now().timestamp())
+
 data = {
-        'username': f'' + os.getenv('USER'),
         'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:'+ os.getenv('PASSWORD'),
+        'username': os.getenv('USERNAME'),
         'queryParams': '{}',
         'optIntoOneTap': 'false'
 } 
@@ -25,45 +27,42 @@ data = {
 headers = {
     'authority': 'www.instagram.com',
     'method': 'POST',
-    "path": "/api/v1/web/accounts/login/ajax/",
+    'path': '/api/v1/web/accounts/login/ajax/',
     'scheme': 'https',
     'accept': '*/*',
     'accept-encoding': 'gzip, deflate, br',
     'accept-language': 'en-US,en;q=0.9',
-    'content-length': '292',
+    'content-length': '306',
     'content-type': 'application/x-www-form-urlencoded',
-    "cookie" : 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; datr=QDcAY3K6EgsSgRBNdwVvBkB-; dpr=2; ig_nrcb=1; csrftoken=jDPQuJprT6E6HgL1IsgJoIHfCjsSrNji; ds_user_id=58604319986',
-    "origin": 'https://www.instagram.com',
-    "referer" : "https://www.instagram.com/",
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+    'cookie': 'dpr=2; ig_did=2679650D-61BD-4EC2-91F8-3FD9D96EA5E1; datr=rqdFZKdt0BBuKuQ_30wLtiD8; ig_nrcb=1; mid=ZEWnrwAEAAFk2ka6SPMfxPt_trkZ; ds_user_id=58604319986; csrftoken=9R1UemCYgte8yYDIlAf3s4uSFEwzRsAF; rur="RVA\05458604319986\0541714102503:01f736d8693bf8b9a4b1f5315b10929d8de56ff82dba45509a08b5ec59833860b754f616"',
+    'origin': 'https://www.instagram.com',
+    'referer': 'https://www.instagram.com/accounts/login/',
+    'sec-ch-prefers-color-scheme': 'dark',
+    'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
     'sec-ch-ua-mobile': '?1',
     'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest' : 'empty',
+    'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
-    'user-agent' : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    'viewport-width': '425',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36',
+    'viewport-width': '768',
     'x-asbd-id': '198387',
-    'x-csrftoken' : 'jDPQuJprT6E6HgL1IsgJoIHfCjsSrNji',
-    'x-ig-app-id': '1217981644879628',
-    'x-ig-www-claim': '0',
-    'x-instagram-ajax': '1007329431',
-    'x-requested-with' : 'XMLHttpRequest',
+    'x-csrftoken': '9R1UemCYgte8yYDIlAf3s4uSFEwzRsAF',
+    'x-ig-app-id': '936619743392459',
+    'x-ig-www-claim': 'hmac.AR2YJUm4-djg30GSAO7GeOXGzk0BpGjoy1p98_o1I58hs50A',
+    'x-instagram-ajax': '1007386014',
+    'x-requested-with': 'XMLHttpRequest',
 }
 
 s = requests.Session()
 
 def login():
 
-    s.cookies.clear()
-    
+    s.cookies.clear()  
     r = s.get('https://www.instagram.com/api/v1/web/accounts/login/ajax/')
-
     newCookies = r.cookies.get_dict()
 
     #Update headers
-
     currentCookie = headers['cookie']
     #Replace csrf
     currentCookie = re.sub("csrftoken=(.*?)\;", 'csrftoken=' + newCookies['csrftoken'] + ';', currentCookie)
@@ -79,6 +78,7 @@ def login():
     r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data, headers=headers)
 
     print(r.content)
+
 
 login()
 
@@ -139,7 +139,7 @@ def index():
             except:
                 #If the post is only a single image
                 response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
-                all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
+                all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})   
         
         return {'links' : all_links}
     
