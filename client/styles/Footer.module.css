@@ -13,7 +13,7 @@
     align-items: center;
     padding: 1% 0% 5% 0%;
     row-gap: 20px;
-    border-top: darkgray 2px solid;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     text-align: center;
 }
 
@@ -31,7 +31,7 @@
 
 .li{
     margin-bottom: 5px;
-    color: rgb(178, 0, 243);
+    color: #830a83;
     font-weight: 450;
 }
 

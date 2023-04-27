@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '../components/footer'
+import Faq from "react-faq-component"
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,6 +31,52 @@ export default function Home() {
     }
   }
 
+  const data = {
+    title: "Frequently Asked Questions",
+    rows: [
+        {
+            title: "What is the purpose of IGSave?",
+            content: "IGSave is an easy and free to use tool that helps Instagram users download Instagram content such as images/photos, videos, and reels in the highest quality possible directly to their device. IGSave also allows for you to view the content you wish without an internet connection and share Instagram posts on other social media or communications platforms.",
+        },
+        {
+          title: "Is there a limit for downloading content?",
+          content: "Nope! Thankfully IGSave was developed in such a way that enables its users to download any amount of content they wish per session. All types of content such as photos, videos, and reels can be downloaded at any amount without any kinds of restrictions!",
+        },
+        {
+            title: "Which devices does IGSave support?",
+            content:
+                "IGSave was designed to provide full compatibility with various devices. Thanks to IGSave being a web based tool it is able to run on any platform such as Windows, MacOS, iOS, Android, and Linux with browser support. Additionally browsers such as Google Chrome, Safari, Mozilla Firefox, Microsoft Edge, Opera, Chromium, and more support IGSave!",
+        },
+        {
+            title: "Does IGSave download posts from any account?",
+            content: "In order for IGSave to download a post it is required that the account of interest is a public account. This means that private Instagram accounts are not supported when it comes to downloading content from them due to privacy reasons set by the user of that account.",
+        },
+        {
+          title: "What quality are posts downloaded at?",
+          content: "By default, all posts are downloaded at the maximum quality possible which depends on the dimensions of the post originally uploaded by the user. In most cases the resolution of post that is being downloaded is 1080x1350 as IGSave strives to provide the best results for its users.",
+        },
+        {
+          title: "What sort of file formats can I expect?",
+          content: "IGSave downloads video or reel posts in the .mp4 file format and .jpg file format for pictures. These file formats are expected to provide the most efficiency for an IGSave user as they result in smaller file size while retaining quality, delivering the best outcome.",
+        },
+    ],
+  };
+
+  const style = {
+    bgColor: 'white',
+    titleTextColor: "black",
+    rowTitleColor: "black",
+    rowContentColor: 'purple',
+    arrowColor: "purple",
+  };
+
+  const config = {
+      animate: true,
+      tabFocus: true,
+      expandIcon: "+",
+      collapseIcon: "-",
+  };
+
   return (
     <>
       <Head>
@@ -37,7 +85,6 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
-      {/* <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div> */}
       <main className={styles.header}>
         <a href='https://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
       </main>
@@ -76,7 +123,7 @@ export default function Home() {
           <br/>
           <p className={inter.className}>1. Copy the link for the post or reel.</p>
           <p className={inter.className}>2. Paste into the box above</p>
-          <p className={inter.className}>3. Hit the `Download` Button and save to your device!</p>
+          <p className={inter.className}>3. Click the `Download` button!</p>
         </div>
       </div>
 
@@ -129,6 +176,17 @@ export default function Home() {
         <div className={styles.subHeading}>
           <br/>
           <p className={inter.className}>IGSave helps you download multi-content media such as carousels. Use IGSave to extract photos and/or videos from carousels you wish!</p>
+        </div>
+      </div>
+
+
+      <div className={styles.FAQContainer}>
+        <div className={inter.className}>
+          <Faq
+            data={data}
+            styles={style}
+            config={config}
+          />
         </div>
       </div>
 
