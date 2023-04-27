@@ -52,9 +52,13 @@ export default function Home() {
       </div> 
 
       <div className={styles.aboutDiv}>
-        <img src='/aboutLogo.png'></img>
+        <div className={styles.aboutLeftDiv}>
+          <img src='/aboutLogo.png'></img>
+        </div>
         <div className={styles.aboutParaDiv}>
-          <h1 className={inter.className}>Download Instagram Photos!</h1>
+          <div className={styles.downloadHeading}>
+            <h1 className={inter.className}>Download Instagram Photos!</h1>
+          </div>
           <br/>
           <p className={inter.className}>IGSave helps you to download any Instagram photo in full definition. You can download a single image or multiple images from a caroursel post.</p>
           <br/>
@@ -63,8 +67,10 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
@@ -79,15 +85,16 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Photo Download</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>Photo Download</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
           <p className={inter.className}>Instagram image posts are visual content shared on the social media platform Instagram. These posts can include a variety of images, such as photographs, graphics, illustrations, and memes. Use IGSave to download pictures you desire at full resolution.</p>
         </div>
       </div>
-
 
       <Footer/>
       <GoogleAnalytics measurementId='G-ZGXMMY4FE3' />

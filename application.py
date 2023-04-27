@@ -8,6 +8,8 @@ import base64
 import time
 import backoff
 import re
+import calendar
+import time
 
 application = Flask(__name__)
 
@@ -16,8 +18,8 @@ application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
 
 data = {
+        'enc_password': f'#PWD_INSTAGRAM_BROWSER:10:1682473797:' + os.getenv('PASSWORD'),
         'username': f'' + os.getenv('USER'),
-        'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:'+ os.getenv('PASSWORD'),
         'queryParams': '{}',
         'optIntoOneTap': 'false'
 } 
@@ -30,25 +32,25 @@ headers = {
     'accept': '*/*',
     'accept-encoding': 'gzip, deflate, br',
     'accept-language': 'en-US,en;q=0.9',
-    'content-length': '292',
+    'content-length': '302',
     'content-type': 'application/x-www-form-urlencoded',
-    "cookie" : 'fbm_124024574287414=base_domain=.instagram.com; mid=Ykx7ZgALAAEuA5ym-037fLHn17yE; ig_did=1878DCE3-1DD2-4E8A-AEBF-F030FB4E39C5; datr=QDcAY3K6EgsSgRBNdwVvBkB-; dpr=2; ig_nrcb=1; csrftoken=jDPQuJprT6E6HgL1IsgJoIHfCjsSrNji; ds_user_id=58604319986',
+    "cookie" : 'dpr=2; ig_did=2679650D-61BD-4EC2-91F8-3FD9D96EA5E1; datr=rqdFZKdt0BBuKuQ_30wLtiD8; ig_nrcb=1; mid=ZEWnrwAEAAFk2ka6SPMfxPt_trkZ; csrftoken=CazoVxOKBEaDUwGBNUHBSR1fgYkAjJSA; ds_user_id=58604319986; rur="RVA\05458604319986\0541714012453:01f7beab6ea38d324915c5da33a87f91ab60ac37e0dcb4ca4cf143f011cf05a87b2500c3"',
     "origin": 'https://www.instagram.com',
-    "referer" : "https://www.instagram.com/",
-    'sec-ch-prefers-color-scheme': 'light',
-    'sec-ch-ua': '"Google Chrome";v="111", "Not(A:Brand";v="8", "Chromium";v="111"',
+    "referer" : 'https://www.instagram.com/',
+    'sec-ch-prefers-color-scheme': 'dark',
+    'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
     'sec-ch-ua-mobile': '?1',
     'sec-ch-ua-platform': '"Android"',
     'sec-fetch-dest' : 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
-    'user-agent' : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    'viewport-width': '425',
+    'user-agent' : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36',
+    'viewport-width': '1096',
     'x-asbd-id': '198387',
-    'x-csrftoken' : 'jDPQuJprT6E6HgL1IsgJoIHfCjsSrNji',
+    'x-csrftoken' : 'CazoVxOKBEaDUwGBNUHBSR1fgYkAjJSA',
     'x-ig-app-id': '1217981644879628',
-    'x-ig-www-claim': '0',
-    'x-instagram-ajax': '1007329431',
+    'x-ig-www-claim': 'hmac.AR2YJUm4-djg30GSAO7GeOXGzk0BpGjoy1p98_o1I58hs7d2',
+    'x-instagram-ajax': '1007377421',
     'x-requested-with' : 'XMLHttpRequest',
 }
 
@@ -57,7 +59,7 @@ s = requests.Session()
 def login():
 
     s.cookies.clear()
-    
+
     r = s.get('https://www.instagram.com/api/v1/web/accounts/login/ajax/')
 
     newCookies = r.cookies.get_dict()
@@ -66,7 +68,7 @@ def login():
 
     currentCookie = headers['cookie']
     #Replace csrf
-    currentCookie = re.sub("csrftoken=(.*?)\;", 'csrftoken=' + newCookies['csrftoken'] + ';', currentCookie)
+    currentCookie = re.sub("csrftoken=(.*?)", 'csrftoken=' + newCookies['csrftoken'] + ';', currentCookie)
     #Replace ig_did
     currentCookie = re.sub("ig_did=(.*?)\;", 'ig_did=' + newCookies['ig_did'] + ';', currentCookie)
     #Replace mid
@@ -76,6 +78,12 @@ def login():
     headers['cookie'] = currentCookie
 
     #Finally login
+
+    current_GMT = time.gmtime()
+    time_stamp = calendar.timegm(current_GMT)
+    data['enc_password'] = f'#PWD_INSTAGRAM_BROWSER:10:{time_stamp}:'+ os.getenv('PASSWORD'),
+    print(data['enc_password'])
+
     r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data, headers=headers)
 
     print(r.content)

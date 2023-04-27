@@ -52,7 +52,9 @@ export default function Home() {
       </div> 
 
       <div className={styles.aboutDiv}>
-        <img src='/aboutLogo.png'></img>
+        <div className={styles.aboutLeftDiv}>
+          <img src='/aboutLogo.png'></img>
+        </div>
         <div className={styles.aboutParaDiv}>
           <div className={styles.downloadHeading}>
             <h1 className={inter.className}>Download Instagram Photos and Videos!</h1>
@@ -65,8 +67,10 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
@@ -77,12 +81,14 @@ export default function Home() {
       </div>
 
       <div className={styles.supportHeading}>
-        <h1 className={inter.className}>IGSave Supports</h1>
+        <h1 className={inter.className}>IGSave Helps With</h1>
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Photos Download</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>Photo Download</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
@@ -91,18 +97,22 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Video Download</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>Video Download</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
-          <br/>
-          <p className={inter.className}>Use IGSave to download videos to your device for free. IGSave Video Downloader lets you download videos from posts or carousels in high definition!</p>
+            <br/>
+            <p className={inter.className}>Use IGSave to download videos to your device for free. IGSave Video Downloader lets you download videos from posts or carousels in high definition!</p>
         </div>
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Reel Download</h1>
+        <div className={styles.aboutLeftDiv}>
+            <div className={styles.divHeading}>
+              <h1 className={inter.className}>Reel Download</h1>
+            </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
@@ -111,14 +121,17 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Carousel Download</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>Carousel Download</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
           <p className={inter.className}>IGSave helps you download multi-content media such as carousels. Use IGSave to extract photos and/or videos from carousels you wish!</p>
         </div>
       </div>
+
       <Footer/>
       <GoogleAnalytics measurementId='G-ZGXMMY4FE3' />
     </>

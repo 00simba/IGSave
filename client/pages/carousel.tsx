@@ -52,9 +52,13 @@ export default function Home() {
       </div> 
 
       <div className={styles.aboutDiv}>
-        <img src='/aboutLogo.png'></img>
+        <div className={styles.aboutLeftDiv}>
+          <img src='/aboutLogo.png'></img>
+        </div>
         <div className={styles.aboutParaDiv}>
-          <h1 className={inter.className}>Download Instagram Carousels!</h1>
+          <div className={styles.downloadHeading}>
+            <h1 className={inter.className}>Download Instagram Photos and Videos!</h1>
+          </div>
           <br/>
           <p className={inter.className}>Carousels are a way of combining pictures and/or videos into one post. IGSave helps you download videos and/or images from a carousel.</p>
           <br/>
@@ -63,8 +67,10 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
@@ -79,8 +85,10 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Carousel Download</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>Carousel Download</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>

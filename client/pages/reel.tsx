@@ -52,9 +52,13 @@ export default function Home() {
       </div> 
 
       <div className={styles.aboutDiv}>
-        <img src='/aboutLogo.png'></img>
+        <div className={styles.aboutLeftDiv}>
+          <img src='/aboutLogo.png'></img>
+        </div>
         <div className={styles.aboutParaDiv}>
-          <h1 className={inter.className}>Download Instagram Reels!</h1>
+          <div className={styles.downloadHeading}>
+            <h1 className={inter.className}>Download Instagram Reels!</h1>
+          </div>
           <br/>
           <p className={inter.className}>IGSave also enables you to download your favourite reels at high definition straight to your device.</p>
           <br/>
@@ -63,8 +67,10 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
@@ -79,8 +85,10 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Reel Download</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>Reel Download</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>

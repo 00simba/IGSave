@@ -52,9 +52,13 @@ export default function Home() {
       </div> 
 
       <div className={styles.aboutDiv}>
-        <img src='/aboutLogo.png'></img>
+        <div className={styles.aboutLeftDiv}>
+          <img src='/aboutLogo.png'></img>
+        </div>
         <div className={styles.aboutParaDiv}>
-          <h1 className={inter.className}>Download Instagram Videos!</h1>
+          <div className={styles.downloadHeading}>
+            <h1 className={inter.className}>Download Instagram Videos!</h1>
+          </div>
           <br/>
           <p className={inter.className}>Download your favourite Instagram video where videos are downloaded at full resolution from single video post or carousel posts.</p>
           <br/>
@@ -63,8 +67,10 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
@@ -75,12 +81,14 @@ export default function Home() {
       </div>
 
       <div className={styles.supportHeading}>
-        <h1 className={inter.className}>IGSave Video Download</h1>
+        <h1 className={inter.className}>Video Downloader</h1>
       </div>
 
       <div className={styles.aboutDiv}>
-        <div className={styles.divHeading}>
-          <h1 className={inter.className}>Video Download</h1>
+        <div className={styles.aboutLeftDiv}>
+          <div className={styles.divHeading}>
+            <h1 className={inter.className}>Video Download</h1>
+          </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
