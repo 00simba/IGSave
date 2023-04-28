@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '../components/footer'
 import Link from 'next/link'
+import Faq from "react-faq-component"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,47 @@ export default function Home() {
     }
   }
 
+  const data = {
+    title: "Video Downloader FAQ",
+    rows: [
+        {
+          title: <p className={styles.pTag}>Does the Instagram Video Downloader have a download limit?</p>,
+          content: <p className={styles.pTag}>There is absolutely no limit when it comes to downloading Instagram video using the IGSave Video Downloader. The IGSave Video Downloader was engineered with scalability in mind such as downloading lots of Instagram videos in one session.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>What will be the file extension of the downloaded videos?</p>,
+          content: <p className={styles.pTag}>Every Instagram video downloaded through IGSave Video Downloader is saved in the .mp4 format. The resons being that it is widely used, supports high compression resulting in smaller file size and quicker downloads.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>Is IGSave Video Downloader free to use?</p>,
+          content: <p className={styles.pTag}>Yes the IGSave Video Downloader is fully free to use. IGSave wants its users to have the best experience possible and paying for video downloads is definitely not one of them!</p>,
+        },
+        {
+          title: <p className={styles.pTag}>Does IGSave Video Downloader ensure high resolution download?</p>,
+          content: <p className={styles.pTag}>Yes, IGSave ensures that all video files being downloaded by the user are of the highest quality possible. This ensures that IGSave users are completely satisfied with the results as IGSave values its users` needs.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>Can IGSave Video Downloader work on all devices?</p>,
+          content: <p className={styles.pTag}>Yes, IGSave Video Downloader works on all devices that can run a browser. In the world of modern technology, almost every Instagram user has access to this making the IGSave Video Downloader a viable option to download Instagram videos.</p>,
+        },
+    ],
+  };
+
+  const style = {
+    bgColor: 'white',
+    titleTextColor: "black",
+    rowTitleColor: "black",
+    rowContentColor: 'purple',
+    arrowColor: "purple",
+  };
+
+  const config = {
+      animate: true,
+      tabFocus: true,
+      expandIcon: "+",
+      collapseIcon: "-",
+  };
+
   return (
     <>
       <Head>
@@ -38,7 +80,6 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
-      {/* <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>   */}
       <main className={styles.header}>
         <Link href='/'><img className={styles.logo} src='/igsave_logo_full.png'></img></Link>
       </main>
@@ -61,23 +102,23 @@ export default function Home() {
             <h1 className={inter.className}>Download Instagram Videos!</h1>
           </div>
           <br/>
-          <p className={inter.className}>Download your favourite Instagram video where videos are downloaded at full resolution from single video post or carousel posts.</p>
+          <p className={inter.className}>Another common use for Instagram is to upload videos to the internet that are up to 60 seconds long. IGSave comes handy when it comes to downloading a video as the app does not support direct video download to your device.</p>
           <br/>
-          <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such running Windows, macOS, iPhone, or Android!</p>
+          <p className={inter.className}>Get started today by using IGSave to download your favourite Instagram videos to your device with ease!</p>
         </div>
       </div>
 
       <div className={styles.aboutDiv}>
         <div className={styles.aboutLeftDiv}>
           <div className={styles.divHeading}>
-            <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+            <h1 className={inter.className}>Video Download Steps!</h1>
           </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>1. Copy the link for the post or reel.</p>
-          <p className={inter.className}>2. Paste into the box above</p>
-          <p className={inter.className}>3. Hit the `Download` Button and save to your device!</p>
+          <p className={inter.className}>1. Copy the link of the Instagram video.</p>
+          <p className={inter.className}>2. Paste the video link into the textbox above</p>
+          <p className={inter.className}>3. Hit the `Download` button and save the video!</p>
         </div>
       </div>
 
@@ -93,7 +134,17 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram videos are short-form video content shared on the social media platform Instagram. Instagram allows users to record videos directly within the app or upload videos from their devices camera roll. Use IGSave to download any Instagram video.</p>
+          <p className={inter.className}>Instagram features video sharing which is a way for content creators to share videos that can be up to 60 seconds long. In many cases videos go viral with people wanting to be save them to their device to be shared or access later. Thankfully, IGSave was built with that purpose in mind allowing you to do so!</p>
+        </div>
+      </div>
+
+      <div className={styles.FAQContainer}>
+        <div className={inter.className}>
+          <Faq
+            data={data}
+            styles={style}
+            config={config}
+          />
         </div>
       </div>
 

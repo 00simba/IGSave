@@ -44,6 +44,10 @@ export default function Home() {
           content: <p className={styles.pTag}>Nope! Thankfully IGSave was developed in such a way that enables its users to download any amount of content they wish per session. All types of content such as photos, videos, and reels can be downloaded at any amount without any kinds of restrictions!</p>,
         },
         {
+          title: <p className={styles.pTag}>Is IGSave free to use?</p>,
+          content: <p className={styles.pTag}>Yes! IGSave is completely free to use as IGSave values the convinence of its users. For as long as IGSave exists, it is guaranteed to be free to use!</p>,
+        },
+        {
             title: <p className={styles.pTag}>Which devices does IGSave support?</p>,
             content:
                 <p className={styles.pTag}>IGSave was designed to provide full compatibility with various devices. Thanks to IGSave being a web based tool it is able to run on any platform such as Windows, MacOS, iOS, Android, and Linux with browser support. Additionally browsers such as Google Chrome, Safari, Mozilla Firefox, Microsoft Edge, Opera, Chromium, and more support IGSave!</p>,
@@ -59,6 +63,10 @@ export default function Home() {
         {
           title: <p className={styles.pTag}>What sort of file formats can I expect?</p>,
           content: <p className={styles.pTag}>IGSave downloads video or reel posts in the .mp4 file format and .jpg file format for pictures. These file formats are expected to provide the most efficiency for an IGSave user as they result in smaller file size while retaining quality, delivering the best outcome.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>Will any of my data be required to use IGSave?</p>,
+          content: <p className={styles.pTag}>IGSave does not require any sort of personal data on your end. You do not need to provide any sort of Instagram login information to use IGSave which means your account information will remain completely safe. IGSave only needs the public post link to help you download Instagram content fully anonymously.</p>,
         },
     ],
   };
@@ -123,8 +131,8 @@ export default function Home() {
         <div className={styles.subHeading}>
           <br/>
           <p className={inter.className}>1. Copy the link for the post or reel.</p>
-          <p className={inter.className}>2. Paste into the box above</p>
-          <p className={inter.className}>3. Click the `Download` button!</p>
+          <p className={inter.className}>2. Paste into the textbox above</p>
+          <p className={inter.className}>3. Click the `Download` button and save away!</p>
         </div>
       </div>
 
@@ -140,7 +148,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Use our Instagram photo downloader to save content directly to your device. IGSave helps you to download pictures of your interest at a full resolution!</p>
+          <p className={inter.className}>One of the internets most popular ways of sharing photos is done through Instagram. IGSave helps you download pictures from Instagram at a full resolution!</p>
         </div>
       </div>
 
@@ -152,7 +160,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
             <br/>
-            <p className={inter.className}>Use IGSave to download videos to your device for free. IGSave Video Downloader lets you download videos from posts or carousels in high definition!</p>
+            <p className={inter.className}>Instagram does not come with a video download feature, however, using IGSave you can download any kind of Instagram video to your device.</p>
         </div>
       </div>
 
@@ -164,7 +172,7 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Download your favourite Reels using the IGSave Reel Downloader. IGSave saves Reels for you in the high definiton and straight to your library!</p>
+          <p className={inter.className}>Instagram reels are by far the most popular way of sharing videos and IGSave helps you save Reels straight to your device in high definition!</p>
         </div>
       </div>
 
@@ -176,10 +184,9 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>IGSave helps you download multi-content media such as carousels. Use IGSave to extract photos and/or videos from carousels you wish!</p>
+          <p className={inter.className}>Instagram carousels are a creative way of combining photos and videos into one post. IGSave helps you download content from carousels you wish.</p>
         </div>
       </div>
-
 
       <div className={styles.FAQContainer}>
         <div className={inter.className}>

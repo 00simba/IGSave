@@ -18,7 +18,6 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
-      {/* <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>   */}
       <main className={styles.header}>
         <Link href='/'><img className={styles.logo} src='/igsave_logo_full.png'></img></Link>
       </main>

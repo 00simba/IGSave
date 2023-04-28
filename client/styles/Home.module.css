@@ -105,7 +105,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 10px;
   color: black;
-  margin: 7% 10% 15% 10%;
+  margin: 7% 10% 7% 10%;
   text-align: center;
   overflow: hidden;
 }
@@ -183,7 +183,7 @@
   }
 
   .aboutDiv{
-    margin: 7% 10% 5% 10%;
+    margin: 5% 10% 5% 10%;
   }
 
   .aboutDiv img{

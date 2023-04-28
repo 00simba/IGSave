@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '../components/footer'
 import Link from 'next/link'
+import Faq from "react-faq-component"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,6 +31,47 @@ export default function Home() {
     }
   }
 
+  const data = {
+    title: "Reel Downloader FAQ",
+    rows: [
+        {
+          title: <p className={styles.pTag}>How many reels can I download with IGSave Reel Downloader?</p>,
+          content: <p className={styles.pTag}>As many Instagram reels as you want! IGSave runs without any download limits be it photos, videos, and reels making your experience awesome! Download as many reels as you want starting now.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>What is the format are Instagram reels downloaded in?</p>,
+          content: <p className={styles.pTag}>Instagram reels are downloaded in the .mp4 format as it is accepted as the webs standard, provides high quality, and compatibility with nearly every device.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>Do I need to pay to use IGSave Reel Downloader?</p>,
+          content: <p className={styles.pTag}>No, you do not need to pay a single penny to use IGSave Reel Downloader as it is designed to be a totally free to use service.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>What quality does IGSave Reel Downloader provide?</p>,
+          content: <p className={styles.pTag}>IGSave Reel Downloader ensures that the reel of interest is downloaded at the highest resolution possible. IGSave Reel Downloader processes all video data for you and picks out the full resolution version of the reel to be downloaded on to your device.</p>,
+        },
+        {
+          title: <p className={styles.pTag}>Does IGSave Reel Downloader work on every device?</p>,
+          content: <p className={styles.pTag}>Yes, IGSave Reel Downloader was created with the purpose of serving as many people as possible. This means that users from Windows, MacOS, iOS, Android, Linux, or any operating system that supports a browser is able to use IGSave Reel Downloader.</p>,
+        },
+    ],
+  };
+
+  const style = {
+    bgColor: 'white',
+    titleTextColor: "black",
+    rowTitleColor: "black",
+    rowContentColor: 'purple',
+    arrowColor: "purple",
+  };
+
+  const config = {
+      animate: true,
+      tabFocus: true,
+      expandIcon: "+",
+      collapseIcon: "-",
+  };
+
   return (
     <>
       <Head>
@@ -38,7 +80,6 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
-      {/* <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>   */}
       <main className={styles.header}>
         <Link href='/'><img className={styles.logo} src='/igsave_logo_full.png'></img></Link>
       </main>
@@ -61,23 +102,23 @@ export default function Home() {
             <h1 className={inter.className}>Download Instagram Reels!</h1>
           </div>
           <br/>
-          <p className={inter.className}>IGSave also enables you to download your favourite reels at high definition straight to your device.</p>
+          <p className={inter.className}>Reels are a unique and fun way of creating videos that span the entire screen and are up to 90 seconds long. The interaction of scrolling through reels can become addicting making users come across various reels they wish to download.</p>
           <br/>
-          <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such running Windows, macOS, iPhone, or Android!</p>
+          <p className={inter.className}>Use IGSave Reel Downloader to download Instagram Reels quickly to your device in the highest resolution!</p>
         </div>
       </div>
 
       <div className={styles.aboutDiv}>
         <div className={styles.aboutLeftDiv}>
           <div className={styles.divHeading}>
-            <h1 className={inter.className}>3 Easy Steps To Download!</h1>
+            <h1 className={inter.className}>Reel Download Steps!</h1>
           </div> 
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>1. Copy the link for the post or reel.</p>
-          <p className={inter.className}>2. Paste into the box above</p>
-          <p className={inter.className}>3. Hit the `Download` Button and save to your device!</p>
+          <p className={inter.className}>1. Copy the link of the reel post</p>
+          <p className={inter.className}>2. Paste the reel link into the textbox above</p>
+          <p className={inter.className}>3. Press the `Download` button and save your reel!</p>
         </div>
       </div>
 
@@ -93,7 +134,17 @@ export default function Home() {
         </div>
         <div className={styles.subHeading}>
           <br/>
-          <p className={inter.className}>Instagram Reels are a feature on the social media platform Instagram that allows users to create and share short-form video content. Reels are typically 15 to 30 seconds in length and are designed to be fun, creative, and engaging. IGSave also enables you to download your favourite reels at high definition straight to your device.</p>
+          <p className={inter.className}>Instagram reels were inspired by TikTok and quickly became the platforms most viral way of sharing videos. Reels have surpassed Instagram videos and will continue to do so as they provide users a better viewing experience. To share this experince IGSave allows users to download Reels directly to their device!</p>
+        </div>
+      </div>
+
+      <div className={styles.FAQContainer}>
+        <div className={inter.className}>
+          <Faq
+            data={data}
+            styles={style}
+            config={config}
+          />
         </div>
       </div>
 
