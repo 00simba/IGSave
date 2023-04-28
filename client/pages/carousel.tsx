@@ -52,7 +52,7 @@ export default function Home() {
         },
         {
           title: <p className={styles.pTag}>Which devices are compatible with IGSave Carousel Downloader?</p>,
-          content: <p className={styles.pTag}>As far as the device can run Instagram is it guaranteed it can also support IGSave Carousel Downloader. This includes all modern day desktops, laptops, phones, and tablets!</p>,
+          content: <p className={styles.pTag}>As long as the device can run Instagram is it guaranteed it can also support IGSave Carousel Downloader. This includes all modern day desktops, laptops, phones, and tablets!</p>,
         },
     ],
   };
