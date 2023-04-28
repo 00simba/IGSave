@@ -158,6 +158,9 @@
   margin: 0% 10% 0% 10%;
 }
 
+.pTag{
+  font-weight: 450;
+}
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
 

@@ -8,6 +8,7 @@ import Footer from '@/components/footer';
 import '@/styles/Media.module.css'
 import { useRouter } from 'next/router';
 import LoadingIcons from 'react-loading-icons'
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -80,7 +81,7 @@ export default function Media(){
     return(
         <>
             <main className={styles.header}>
-                <a href='http://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
+                <Link href='/'><img className={styles.logo} src='/igsave_logo_full.png'></img></Link>
             </main>
             <div>
                 <div className={styles.downloadDiv}>

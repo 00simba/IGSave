@@ -13,7 +13,9 @@ export default function Footer(){
         <div className={styles.footerContainer}>
             <div className={styles.footerDiv}>
                 <div className={styles.logoContainer}>
-                    <img className={homeStyles.logo} src='./igsave_logo_full.png'></img>
+                    <Link href='/'>
+                        <img className={homeStyles.logo} src='./igsave_logo_full.png'></img>
+                    </Link>
                 </div>
                 <div>
                     <ul className={inter.className}>
@@ -48,7 +50,9 @@ export default function Footer(){
 
             
             <div className={styles.copyrightBanner}>
-                <p className={inter.className}>&copy; {new Date().getFullYear()} Copyright: igsave.io</p>
+                <div className={homeStyles.pTag}>
+                    <p className={inter.className}>&copy; 2022 - {new Date().getFullYear()} IGSave. All Rights Reserved.</p>     
+                </div>
             </div>
         </div>
     )

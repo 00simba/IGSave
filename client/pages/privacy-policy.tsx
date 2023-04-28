@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '../components/footer'
 import privacyStyles from '@/styles/Privacy.module.css'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,7 @@ export default function Home() {
       </Head> 
       {/* <div className={styles.announcementBar}><span className={inter.className}>🔧 Work in Progress...</span></div>   */}
       <main className={styles.header}>
-        <a href='https://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
+        <Link href='/'><img className={styles.logo} src='/igsave_logo_full.png'></img></Link>
       </main>
 
       <div className={privacyStyles.privacyDiv}>

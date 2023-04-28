@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import Footer from '../components/footer'
 import Faq from "react-faq-component"
+import Link from 'next/link'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -35,29 +36,29 @@ export default function Home() {
     title: "Frequently Asked Questions",
     rows: [
         {
-            title: "What is the purpose of IGSave?",
-            content: "IGSave is an easy and free to use tool that helps Instagram users download Instagram content such as images/photos, videos, and reels in the highest quality possible directly to their device. IGSave also allows for you to view the content you wish without an internet connection and share Instagram posts on other social media or communications platforms.",
+            title: <p className={styles.pTag}>What is the purpose of IGSave?</p>,
+            content: <p className={styles.pTag}>IGSave is an easy and free to use tool that helps Instagram users download Instagram content such as images/photos, videos, and reels in the highest quality possible directly to their device. IGSave also allows for you to view the content you wish without an internet connection and share Instagram posts on other social media or communications platforms.</p>,
         },
         {
-          title: "Is there a limit for downloading content?",
-          content: "Nope! Thankfully IGSave was developed in such a way that enables its users to download any amount of content they wish per session. All types of content such as photos, videos, and reels can be downloaded at any amount without any kinds of restrictions!",
+          title: <p className={styles.pTag}>Is there a limit for downloading content?</p>,
+          content: <p className={styles.pTag}>Nope! Thankfully IGSave was developed in such a way that enables its users to download any amount of content they wish per session. All types of content such as photos, videos, and reels can be downloaded at any amount without any kinds of restrictions!</p>,
         },
         {
-            title: "Which devices does IGSave support?",
+            title: <p className={styles.pTag}>Which devices does IGSave support?</p>,
             content:
-                "IGSave was designed to provide full compatibility with various devices. Thanks to IGSave being a web based tool it is able to run on any platform such as Windows, MacOS, iOS, Android, and Linux with browser support. Additionally browsers such as Google Chrome, Safari, Mozilla Firefox, Microsoft Edge, Opera, Chromium, and more support IGSave!",
+                <p className={styles.pTag}>IGSave was designed to provide full compatibility with various devices. Thanks to IGSave being a web based tool it is able to run on any platform such as Windows, MacOS, iOS, Android, and Linux with browser support. Additionally browsers such as Google Chrome, Safari, Mozilla Firefox, Microsoft Edge, Opera, Chromium, and more support IGSave!</p>,
         },
         {
-            title: "Does IGSave download posts from any account?",
-            content: "In order for IGSave to download a post it is required that the account of interest is a public account. This means that private Instagram accounts are not supported when it comes to downloading content from them due to privacy reasons set by the user of that account.",
+            title: <p className={styles.pTag}>Does IGSave download posts from any account?</p>,
+            content: <p className={styles.pTag}>In order for IGSave to download a post it is required that the account of interest is a public account. This means that private Instagram accounts are not supported when it comes to downloading content from them due to privacy reasons set by the user of that account.</p>,
         },
         {
-          title: "What quality are posts downloaded at?",
-          content: "By default, all posts are downloaded at the maximum quality possible which depends on the dimensions of the post originally uploaded by the user. In most cases the resolution of post that is being downloaded is 1080x1350 as IGSave strives to provide the best results for its users.",
+          title: <p className={styles.pTag}>What quality are posts downloaded at?</p>,
+          content: <p className={styles.pTag}>By default, all posts are downloaded at the maximum quality possible which depends on the dimensions of the post originally uploaded by the user. In most cases the resolution of post that is being downloaded is 1080x1350 as IGSave strives to provide the best results for its users.</p>,
         },
         {
-          title: "What sort of file formats can I expect?",
-          content: "IGSave downloads video or reel posts in the .mp4 file format and .jpg file format for pictures. These file formats are expected to provide the most efficiency for an IGSave user as they result in smaller file size while retaining quality, delivering the best outcome.",
+          title: <p className={styles.pTag}>What sort of file formats can I expect?</p>,
+          content: <p className={styles.pTag}>IGSave downloads video or reel posts in the .mp4 file format and .jpg file format for pictures. These file formats are expected to provide the most efficiency for an IGSave user as they result in smaller file size while retaining quality, delivering the best outcome.</p>,
         },
     ],
   };
@@ -86,7 +87,7 @@ export default function Home() {
         <link rel='icon' href='/igsave_logo.png'/>
       </Head> 
       <main className={styles.header}>
-        <a href='https://igsave.io'><img className={styles.logo} src='/igsave_logo_full.png'></img></a>
+        <Link href='/'><img className={styles.logo} src='/igsave_logo_full.png'></img></Link>
       </main>
       <div className={styles.downloadDiv}>
         <h1 className={inter.className} id='downloadHeading'>
@@ -109,7 +110,7 @@ export default function Home() {
           <br/>
           <p className={inter.className}>IGSave helps you download Instagram Photos, Videos, Carousels, and Reels with ease!</p>
           <br/>
-          <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such running Windows, macOS, iPhone, or Android!</p>
+          <p className={inter.className}>Thanks to its user and device friendly design you can download Instagram content to any device such a desktop, laptop, mobile, or tablet!</p>
         </div>
       </div>
 
