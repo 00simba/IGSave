@@ -1,6 +1,6 @@
 # IGSave
 
-Live: https://igsave.io
+Live: https://igramsaver.onrender.com/
 
 This project features a light weight Instagram image downloader built using the Python requests library and Next.js for its UI.
 
