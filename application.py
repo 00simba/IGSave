@@ -84,6 +84,9 @@ def login():
 
 login()
 
+def get_base64(url):
+    return base64.b64encode(requests.get(url).content)
+
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
 @backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
@@ -114,41 +117,61 @@ def index():
 
         response = {}
 
-        # check if image video carousel
+        # check if carousel
         try:
             media_array = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['carousel_media']
             media_links = []
-            current_links = []
-            for i in range(0, len(media_array)):         
-                current_links.append(media_array[i]['image_versions2']['candidates'][0]['url'])
- 
+            for i in range(0, len(media_array)): 
+
+                current_media = {}
+
+                # img link
+                current_media['img'] = media_array[i]['image_versions2']['candidates'][0]['url']
+                
                 try:
-                    current_links.append(media_array[i]['video_versions'][0]['url'])
+                    # optional video link
+                    current_media['vid'] = media_array[i]['video_versions'][0]['url']
                 except Exception as e:
                     print("no video at carousel index")
 
-                media_links.append(current_links)
-                current_links = []
+                # thumbnail base64 string
+                current_media['thumbnail'] = str(get_base64(media_array[i]['image_versions2']['candidates'][0]['url']))
 
-            response['carousel_media'] = media_links
+                media_links.append(current_media)
+
+            response['data'] = media_links
             return response
         except Exception as e:
-            print("media is not image video carousel")
+            print("media is not carousel")
 
         # check if reel
         try:
-            reel = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['video_versions'][-1]['url']
-            thumbnail = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['image_versions2']['candidates'][0]['url']
-            response['reel'] = reel
-            response['thumbnail'] = thumbnail
+            vid = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['video_versions'][-1]['url']
+            thumbnail = str(get_base64(post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['image_versions2']['candidates'][0]['url']))
+            response = {
+                'data': [
+                    {
+                        'vid': vid,
+                        'thumbnail': thumbnail
+                    }
+                ]
+            }
             return response
         except Exception as e:
             print("media is not a reel")
 
         # check if single image
         try:
-            image = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['image_versions2']['candidates'][0]['url']
-            response['image'] = image
+            img = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['image_versions2']['candidates'][0]['url']
+            thumbnail = str(get_base64(img))
+            response = {
+                'data': [
+                    {
+                        'img': img,
+                        'thumbnail': thumbnail
+                    }
+                ]
+            }
             return response
         except Exception as e:
             print("media is not an image")
