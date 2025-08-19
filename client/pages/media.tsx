@@ -26,9 +26,10 @@ export default function Media(){
     }
 
     type Media = {
-        url: string;
-        base64: string;
-        base64Vid: string;
+        id: number
+        img: string
+        vid ?: string
+        thumbnail : string
     };
 
     const getLinks = async () => { 
@@ -36,18 +37,24 @@ export default function Media(){
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
 
-        const data = await axios.post('https://igsave.onrender.com', { url: params.url}, config)   
+        console.log(params.url)
 
+        const data = await axios.post('https://igsave.onrender.com/', { url: params.url}, config) 
+    
         var dataArr = new Array<Media>
-        data.data.links.map((item: Media) => {
+        var id = 1
+        data.data['data'].map((item: Media) => {
             var tempObj: Media = {
-                url: item.url,
-                base64: item.base64,
-                base64Vid: item?.base64Vid,
+                id: id,
+                img: item.img,
+                vid: item.vid,
+                thumbnail: item.thumbnail,
             }
             dataArr.push(tempObj)
+            id++
         })
-        setMedia(dataArr)       
+        setMedia(dataArr)   
+   
     }
 
 
@@ -55,14 +62,6 @@ export default function Media(){
         getLinks()
     }, [router.query.url])  
 
-
-    function downloadURI(url: string, uri: string , name: string) {
-        var link = document.createElement("a");
-        link.download = name;
-        link.href = uri;
-        link.target = '_self'
-        link.click();
-    }
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
@@ -107,24 +106,25 @@ export default function Media(){
                 {media.map((item) => {  
 
                     var fileExtension: string;
-                    if(item?.base64Vid){
+                    if(item?.vid){
                         fileExtension = '.mp4'
                     }
                     else{
                         fileExtension = '.jpg'
                     }
 
-                    var fileName: string;
-                    fileName = item.url.split('/')[5].split('.')[0]
+                    const dataUri: string = `data:image/webp;base64,${item.thumbnail.slice(2).slice(0, -1)}`;
+
+                    console.log(item.vid)
 
                     return(
-                    <div className={mediaStyles.mediaCard} key={item.url}>
-                        <img className={mediaStyles.thumbNail} src={item.base64}/>
+                    <div className={mediaStyles.mediaCard} key={item.id}>
+                        <img className={mediaStyles.thumbNail} src={dataUri}/>
                         <div className={mediaStyles.downloadButton}>
                             <div className={mediaStyles.aTagDiv}>
-                                {!item.base64Vid ? 
-                                    <a className={inter.className} href={item.url} rel="noreferrer" target='_blank' /*onClick={() =>{downloadURI(item.url, item.base64, `${fileName}${fileExtension}`)}}*/ download>Download</a> : 
-                                    <a className={inter.className} href={item.url} rel="noreferrer" target='_blank' /*onClick={() => {downloadURI(item.url, item?.base64Vid, `${fileName}${fileExtension}`)}}*/ download>Download</a>
+                                {!item.vid ? 
+                                    <a className={inter.className} rel="noreferrer" target='_blank' href={item.img}>Download</a> : 
+                                    <a className={inter.className} rel="noreferrer" target='_blank' href={item.vid}>Download</a>
                                 }
                             </div>
                         </div>
