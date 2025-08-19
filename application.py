@@ -15,8 +15,8 @@ application.config['CORS_HEADERS'] = 'Content-Type'
 load_dotenv()
 
 data = {
-        'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1589682409:'+ os.getenv('PASSWORD'),
-        'username': os.getenv('USERNAME'),
+        'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:1755111618:{os.getenv('PASSWORD')}',
+        'username': 'igsavedotio',
         'queryParams': '{}',
         'optIntoOneTap': 'false'
 } 
@@ -29,26 +29,31 @@ headers = {
     'accept': '*/*',
     'accept-encoding': 'gzip, deflate, br',
     'accept-language': 'en-US,en;q=0.9',
-    'content-length': '306',
+    'content-length': '417',
     'content-type': 'application/x-www-form-urlencoded',
-    'cookie': 'dpr=2; ig_did=2679650D-61BD-4EC2-91F8-3FD9D96EA5E1; datr=rqdFZKdt0BBuKuQ_30wLtiD8; ig_nrcb=1; mid=ZEWnrwAEAAFk2ka6SPMfxPt_trkZ; ds_user_id=58604319986; csrftoken=9R1UemCYgte8yYDIlAf3s4uSFEwzRsAF; rur="RVA\05458604319986\0541714102503:01f736d8693bf8b9a4b1f5315b10929d8de56ff82dba45509a08b5ec59833860b754f616"',
+    'cookie': 'mid=aJZx3wALAAFrjh-Fbtpvfhri-TKg; datr=jYyXaFTa6TSs0_Szv38dpfZk; ig_did=B09BAB07-E433-4B69-A792-3A609FADFC6E; ps_l=1; ps_n=1; dpr=1.5; ig_nrcb=1; wd=953x868; rur="PRN\05458604319986\0541786647467:01feb75d084eee5c8c89441c7476889728b69857639f50cc180677dc3a53e96ffc3d1389"; csrftoken=oBJbY62yTadDoPYxqIYGtpi8hp79YoED',
     'origin': 'https://www.instagram.com',
     'referer': 'https://www.instagram.com/accounts/login/',
     'sec-ch-prefers-color-scheme': 'dark',
-    'sec-ch-ua': '"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
+    'sec-ch-ua': 'Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
     'sec-fetch-dest': 'empty',
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-origin',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
+    'x-asbd-id': '359341',
     'viewport-width': '768',
-    'x-asbd-id': '198387',
-    'x-csrftoken': '9R1UemCYgte8yYDIlAf3s4uSFEwzRsAF',
+    'x-asbd-id': '359341',
+    'x-csrftoken': 'oBJbY62yTadDoPYxqIYGtpi8hp79YoED',
     'x-ig-app-id': '936619743392459',
-    'x-ig-www-claim': 'hmac.AR2YJUm4-djg30GSAO7GeOXGzk0BpGjoy1p98_o1I58hs50A',
-    'x-instagram-ajax': '1007386014',
+    'x-ig-www-claim': 'hmac.AR2YJUm4-djg30GSAO7GeOXGzk0BpGjoy1p98_o1I58hs2DH',
+    'x-instagram-ajax': '1025847364',
     'x-requested-with': 'XMLHttpRequest',
+    'x-web-session-id': 'r676jh:jj186o:9e8iph',
+    'x-fb-friendly-name': 'PolarisShareSheetV3PostShareBarQuery',
+    'x-root-field-name': 'fetch__XDTMediaDict',
+    'x-fb-lsd': '-y0cMGTvW01TJpBQ_kZIyC'
 }
 
 s = requests.Session()
@@ -57,19 +62,19 @@ def login():
 
     s.cookies.clear()  
     r = s.get('https://www.instagram.com/api/v1/web/accounts/login/ajax/')
-    newCookies = r.cookies.get_dict()
+    #newCookies = r.cookies.get_dict()
 
     #Update headers
-    currentCookie = headers['cookie']
+    #currentCookie = headers['cookie']
     #Replace csrf
-    currentCookie = re.sub("csrftoken=(.*?)\;", 'csrftoken=' + newCookies['csrftoken'] + ';', currentCookie)
+    #currentCookie = re.sub("csrftoken=(.*?)\;", 'csrftoken=' + newCookies['csrftoken'] + ';', currentCookie)
     #Replace ig_did
-    currentCookie = re.sub("ig_did=(.*?)\;", 'ig_did=' + newCookies['ig_did'] + ';', currentCookie)
+    #currentCookie = re.sub("ig_did=(.*?)\;", 'ig_did=' + newCookies['ig_did'] + ';', currentCookie)
     #Replace mid
-    currentCookie = re.sub("mid=(.*?)\;", 'mid=' + newCookies['mid'] + ';', currentCookie)
+    #currentCookie = re.sub("mid=(.*?)\;", 'mid=' + newCookies['mid'] + ';', currentCookie)
     #Replace headers with new strings
-    headers['x-csrftoken'] = newCookies['csrftoken']
-    headers['cookie'] = currentCookie
+    #headers['x-csrftoken'] = newCookies['csrftoken']
+    #headers['cookie'] = currentCookie
 
     #Finally login
     r = s.post('https://www.instagram.com/api/v1/web/accounts/login/ajax/', data=data, headers=headers)
@@ -79,13 +84,9 @@ def login():
 
 login()
 
-@backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
-def getJSON(url):
-    r = s.get(url)
-    return r
-
 @application.route('/', methods = ['POST', 'GET'])
 @cross_origin()
+@backoff.on_exception(backoff.expo, requests.exceptions.ConnectionError)
 def index():
 
     all_links = []
@@ -93,55 +94,67 @@ def index():
     if(request.method == 'POST'):
 
         req = request.json
-        download_url = req['url']
+        shortcode = str(req['url'].split('/')[-2])
+ 
+        variables = "{\"shortcode\":\"" + f"{shortcode}" + "\",\"__relay_internal__pv__PolarisShareSheetV3relayprovider\":true}"
 
-        #If link is reel or mobile version
-        if 'reel' in download_url:
-            download_url = download_url[0:43]
-        else:
-            download_url = download_url[0:40]
+        post_data = {
+            'fb_api_caller_class': 'RelayModern',
+            'fb_api_req_friendly_name': 'PolarisPostRootQuery',
+            'variables': f"{variables}",
+            'server_timestamps': 'true',
+            'doc_id': '24760146316904293',  # May change over time
+        }
 
-        r = getJSON(download_url + '?__a=1&__d=dis')
 
-        print(r.content)
+        response = requests.post('https://www.instagram.com/graphql/query', headers=headers, data=post_data)
+        response.raise_for_status()
 
-        media = r.json()
+        post_data = response.json()
 
-        #Check if media is valid, otherwise login() and getJSON()
-        if 'items' not in media:
-            login()
-            r = getJSON(download_url + '?__a=1&__d=dis')
-            media = r.json()
+        response = {}
 
-        mediaArray = []
-
+        # check if image video carousel
         try:
-            #Checks to see if post is a reel
-            responseImg = requests.get(media['items'][0]['image_versions2']['candidates'][0]['url'])
-            responseVid = requests.get(media['items'][0]['video_versions'][0]['url'])
-            all_links.append({'url': media['items'][0]['video_versions'][0]['url'], 'base64': "data:" + responseImg.headers['Content-Type'] + ";" + "base64," + base64.b64encode(responseImg.content).decode("utf-8"), 'base64Vid': "data:" + responseVid.headers['Content-Type'] + ";" + "base64," + base64.b64encode(responseVid.content).decode("utf-8")})
-        except:
-            mediaArray = media['items'][0]
+            media_array = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['carousel_media']
+            media_links = []
+            current_links = []
+            for i in range(0, len(media_array)):         
+                current_links.append(media_array[i]['image_versions2']['candidates'][0]['url'])
+ 
+                try:
+                    current_links.append(media_array[i]['video_versions'][0]['url'])
+                except Exception as e:
+                    print("no video at carousel index")
 
-        if len(mediaArray):
-            try:
-                for items in mediaArray['carousel_media']:  
-                    response = requests.get(items['image_versions2']['candidates'][0]['url'])
-                    try:
-                        #Checks to see if carousel media is a video
-                        all_links.append({'url': items['video_versions'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
-                    except:
-                        #If not video, carousel media is an image
-                        all_links.append({'url': items['image_versions2']['candidates'][0]['url'], 'base64' : "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})
-            except:
-                #If the post is only a single image
-                response = requests.get(mediaArray['image_versions2']['candidates'][0]['url'])
-                all_links.append({'url': mediaArray['image_versions2']['candidates'][0]['url'], 'base64': "data:" + response.headers['Content-Type'] + ";" + "base64," + base64.b64encode(response.content).decode("utf-8")})   
-        
-        return {'links' : all_links}
-    
-    else:
-        return {'links' : all_links}
+                media_links.append(current_links)
+                current_links = []
+
+            response['carousel_media'] = media_links
+            return response
+        except Exception as e:
+            print("media is not image video carousel")
+
+        # check if reel
+        try:
+            reel = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['video_versions'][-1]['url']
+            thumbnail = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['image_versions2']['candidates'][0]['url']
+            response['reel'] = reel
+            response['thumbnail'] = thumbnail
+            return response
+        except Exception as e:
+            print("media is not a reel")
+
+        # check if single image
+        try:
+            image = post_data['data']['xdt_api__v1__media__shortcode__web_info']['items'][0]['image_versions2']['candidates'][0]['url']
+            response['image'] = image
+            return response
+        except Exception as e:
+            print("media is not an image")
+ 
+        response['message'] = "invalid response"
+        return response 
 
 if __name__ == "__main__":
     application.run()

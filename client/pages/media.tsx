@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Inter } from '@next/font/google';
+import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import mediaStyles from '@/styles/Media.module.css';
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"

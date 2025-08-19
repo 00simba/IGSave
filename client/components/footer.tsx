@@ -1,6 +1,6 @@
 import styles from '@/styles/Footer.module.css'
 import homeStyles from '@/styles/Home.module.css'
-import { Inter } from '@next/font/google'
+import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import React from 'react';
 import Popup from 'reactjs-popup';
